@@ -6,14 +6,17 @@ import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-
+import javafx.scene.image.Image;
 
 public class Principal extends Application {
+
     private Stage stage1;
-    public Stage getStagePrincipal(){
+
+    public Stage getStagePrincipal() {
         return stage1;
     }
-    public Stage getStageEntrar(){
+
+    public Stage getStageEntrar() {
         return stage1;
     }
     
@@ -27,11 +30,12 @@ public class Principal extends Application {
         stage.show();
         stage1 = stage;
         stage.setTitle("Foot");
-       
+        
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/visao/img/soccer-ball.png")) {});
     }
+
     public static void main(String[] args) {
         launch(args);
     }
 
 }
-

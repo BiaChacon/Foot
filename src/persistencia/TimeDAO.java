@@ -10,8 +10,10 @@ import java.util.logging.Logger;
 import modelo.Time;
 
 public class TimeDAO {
-    
-   private ConnectionDatabase c = new ConnectionDatabase();
+
+    private ConnectionDatabase c = new ConnectionDatabase();
+
+    private final String LOGIN = "SELECT * FROM TIME WHERE usuario = ? AND senha = ?;";
 
     private final String INSERT = "INSERT INTO TIME(usuario, senha, nome, dataFundacao, patrimonio) VALUES (?, ?, ?, ?, ?);";
 
@@ -20,6 +22,40 @@ public class TimeDAO {
     private final String DELETE = "DELETE FROM TIME WHERE id = ?;";
 
     private final String LISTTIME = "SELECT * FROM TIME";
+
+    public Time loginTime(Time t) {
+        try {
+            c.dbConnection();
+
+            PreparedStatement pst = c.getConnection().prepareStatement(LOGIN);
+
+            pst.setString(1, t.getUsuario());
+            pst.setString(2, t.getSenha());
+
+            ResultSet rst = pst.executeQuery();
+
+            if (rst != null) {
+                Time tr = new Time(
+                        rst.getInt("id"),
+                        rst.getString("usuario"),
+                        rst.getString("senha"),
+                        rst.getString("nome"),
+                        rst.getDate("dataFundacao"),
+                        rst.getDouble("patrimonio")
+                );
+                c.dbConnectionClose();
+                return tr;
+            }
+
+            c.dbConnectionClose();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return null;
+        
+    }
 
     public void insertIntoTime(Time t) {
         c.dbConnection();
@@ -33,7 +69,7 @@ public class TimeDAO {
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erro"+ex);
+            System.out.println("erro" + ex);
         }
         c.dbConnectionClose();
 
@@ -93,5 +129,5 @@ public class TimeDAO {
             e.printStackTrace();
         }
         return listaTime;
-    } 
+    }
 }

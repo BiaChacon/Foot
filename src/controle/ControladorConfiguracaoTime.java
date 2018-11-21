@@ -14,36 +14,38 @@ import persistencia.TimeDAO;
 public class ControladorConfiguracaoTime {
 
     TimeDAO timeDAO = new TimeDAO();
-    
+
     @FXML
     private void editarTime() {
-        
+
         try {
             Parent editarTime = FXMLLoader.load(getClass().getResource("/visao/EditarTime.fxml"));
             ControladorPrincipal.controlador.borderPrincipal.setCenter(editarTime);
         } catch (IOException ex) {
             Logger.getLogger(ControladorConfiguracaoTime.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
 
     @FXML
     private void editarImagem() {
-        
+
     }
 
     @FXML
     private void apagarTime() {
 
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Confirmação");
-            alert.setHeaderText("Confirmar exclusão de Time");
-            alert.setContentText("Tem certeza que deseja excluir o Time?");
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmação");
+        alert.setHeaderText("Confirmar exclusão de Time");
+        alert.setContentText("Tem certeza que deseja excluir o Time?");
 
-            Optional<ButtonType> result = alert.showAndWait();
-            if (result.get() == ButtonType.OK) {
-                
-            }
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+
         }
-    
+        
+        ControladorLogin.controladorLogin.inicio();
+    }
+
 }

@@ -11,12 +11,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import modelo.Time;
+import persistencia.TimeDAO;
 
 public class ControladorLogin implements Initializable {
 
     static ControladorLogin controladorLogin;
+
+    TimeDAO timeDAO = new TimeDAO();
 
     @FXML
     private BorderPane borderLogin;
@@ -30,15 +35,21 @@ public class ControladorLogin implements Initializable {
     private JFXTextField textSenha;
     @FXML
     private JFXTextField textUser;
-    
+    @FXML
+    private Label labelMensagem;
+
     @FXML
     void login() {
-
-        try {
-            Parent login = FXMLLoader.load(getClass().getResource("/visao/Principal.fxml"));
-            borderLogin.setCenter(login);
-        } catch (IOException ex) {
-            Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
+        Time t = new Time(textUser.getText(), textSenha.getText());
+        if (timeDAO.loginTime(t) != null) {
+            try {
+                Parent login = FXMLLoader.load(getClass().getResource("/visao/Principal.fxml"));
+                borderLogin.setCenter(login);
+            } catch (IOException ex) {
+                Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }else{
+          labelMensagem.setText("Usuário ou senha incorreto");
         }
     }
 
@@ -52,17 +63,17 @@ public class ControladorLogin implements Initializable {
             Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    void inicio(){
-       
+
+    void inicio() {
+
         try {
             Parent inicio = FXMLLoader.load(getClass().getResource("/visao/Login.fxml"));
             borderLogin.setCenter(inicio);
         } catch (IOException ex) {
             Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        }
     }
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         controladorLogin = this;

@@ -40,6 +40,7 @@
                   <Image url="@img/soccer-ball.png" />
                </image>
             </ImageView>
+            <Label fx:id="labelMensagem" alignment="CENTER" contentDisplay="CENTER" layoutX="600.0" layoutY="528.0" prefHeight="21.0" prefWidth="257.0" textFill="RED" />
          </children>
       </AnchorPane>
    </center>

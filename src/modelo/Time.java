@@ -40,6 +40,11 @@ public class Time {
         this.patrimonio = patrimonio;
     }
 
+    public Time(String usuario, String senha) {
+        this.usuario = usuario;
+        this.senha = senha;
+    }
+
     public Time() {
         
     }
