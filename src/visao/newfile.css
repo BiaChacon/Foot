@@ -1,0 +1,35 @@
+.jfx-hamburger {
+	 -fx-background-color : blueviolet ;
+}
+
+.jfx-hamburger StackPane {
+	 -fx-background-color : white ;
+}
+
+.table-view .column-header {
+    -fx-border-width: 1 1 1 1;
+    -fx-border-color: white;
+    -fx-background-color:   deepskyblue;
+}
+
+.table-view .column-header .label{
+    -fx-font-family: sans-serif;
+    -fx-font-size: 16px;
+    -fx-text-fill : white;
+    -fx-padding : 16 0 16 0 ;
+} 
+/*
+.tab{
+   -fx-background-color : blueviolet; 
+}
+.tab:selected{
+    -fx-background-color : blueviolet ;
+    
+}
+.tab:focused{
+    -fx-focus-color: transparent;
+}
+
+.tab-pane:left *.tab-header-background{
+     -fx-background-color : black;
+}*/
