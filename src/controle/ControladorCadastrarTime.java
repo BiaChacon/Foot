@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXTextField;
 import java.time.ZoneId;
 import java.util.Date;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import modelo.Time;
 import persistencia.TimeDAO;
 
@@ -21,6 +22,8 @@ public class ControladorCadastrarTime {
 
     @FXML
     private JFXTextField textSenha, textPatrimonio, textNomeTime, textUser;
+    @FXML
+    private Label labelMensg;
 
     @FXML
     private void cancelarCt() {
@@ -36,6 +39,13 @@ public class ControladorCadastrarTime {
         double patrimonio = Double.parseDouble(textPatrimonio.getText());
         
         Time t = new Time(textUser.getText(), textSenha.getText(), textNomeTime.getText(), dfSql, patrimonio);
+       
+        Boolean v = timeDAO.verificarTime(t);
+        if(v){
+            labelMensg.setText("Usuário já existe");
+        }else{
+            timeDAO.insertIntoTime(t);
+        }
         
         ControladorLogin.controladorLogin.login();
 

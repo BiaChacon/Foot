@@ -22,7 +22,31 @@ public class TimeDAO {
     private final String DELETE = "DELETE FROM TIME WHERE id = ?;";
 
     private final String LISTTIME = "SELECT * FROM TIME";
+    
+    private final String VERIFICAR = "SELECT * FROM TIME WHERE usuario = ?;";
+    
+    public Boolean verificarTime(Time t) {
+        try {
+            c.dbConnection();
 
+            PreparedStatement pst = c.getConnection().prepareStatement(VERIFICAR);
+
+            pst.setString(1, t.getUsuario());
+
+            ResultSet rst = pst.executeQuery();
+
+            if (rst != null) {
+                c.dbConnectionClose();
+                return true;
+            }
+
+            c.dbConnectionClose();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     public Time loginTime(Time t) {
         try {
             c.dbConnection();
