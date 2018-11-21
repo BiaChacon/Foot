@@ -1,5 +1,6 @@
 package modelo;
 
+import java.sql.Date;
 import javafx.scene.image.ImageView;
 
 public class Time {
@@ -8,11 +9,11 @@ public class Time {
     private String usuario;
     private String senha;
     private String nome;
-    private String dataFundacao;
+    private Date dataFundacao;
     private double patrimonio;
     private ImageView fotoTime;
 
-    public Time(int id, String usuario, String senha, String nome, String dataFundacao, double patrimonio, ImageView fotoTime) {
+    public Time(int id, String usuario, String senha, String nome, Date dataFundacao, double patrimonio, ImageView fotoTime) {
         this.id = id;
         this.usuario = usuario;
         this.senha = senha;
@@ -22,26 +23,21 @@ public class Time {
         this.fotoTime = fotoTime;
     }
 
-    public Time(int id, String nome, String dataFundacao, double patrimonio) {
+    public Time(int id, String usuario, String senha, String nome, Date dataFundacao, double patrimonio) {
         this.id = id;
+        this.usuario = usuario;
+        this.senha = senha;
         this.nome = nome;
         this.dataFundacao = dataFundacao;
         this.patrimonio = patrimonio;
     }
 
-    
-    public Time(int id, String nome, String dataFundacao, double patrimonio, ImageView fotoTime) {
-        this.id = id;
+    public Time(String usuario, String senha, String nome, Date dataFundacao, double patrimonio) {
+        this.usuario = usuario;
+        this.senha = senha;
         this.nome = nome;
         this.dataFundacao = dataFundacao;
         this.patrimonio = patrimonio;
-        this.fotoTime = fotoTime;
-    }
-
-    public Time(String nome, double patrimonio, String dataFundacao) {
-        this.nome = nome;
-        this.patrimonio = patrimonio;
-        this.dataFundacao = dataFundacao;
     }
 
     public Time() {
@@ -88,11 +84,11 @@ public class Time {
         this.patrimonio = patrimonio;
     }
 
-    public String getDataFundacao() {
+    public Date getDataFundacao() {
         return dataFundacao;
     }
 
-    public void setDataFundacao(String dataFundacao) {
+    public void setDataFundacao(Date dataFundacao) {
         this.dataFundacao = dataFundacao;
     }
 

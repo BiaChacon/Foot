@@ -103,7 +103,7 @@ public class ControladorPrincipal implements Initializable {
     
     @FXML
     private void sair() {
-        System.exit(0);
+         ControladorLogin.controladorLogin.inicio();
     }
     
     public void iniciar(){

@@ -3,13 +3,16 @@ package controle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import modelo.Time;
 
-public class ControladorEditarTime {
+public class ControladorEditarTime implements Initializable{
 
     Time t = new Time();
     
@@ -40,6 +43,11 @@ public class ControladorEditarTime {
         t.setDataFundacao(dataFund);*/
         
         ControladorPrincipal.controlador.configuracao();
+        
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         
     }
 

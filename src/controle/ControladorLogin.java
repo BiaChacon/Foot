@@ -30,9 +30,9 @@ public class ControladorLogin implements Initializable {
     private JFXTextField textSenha;
     @FXML
     private JFXTextField textUser;
-
+    
     @FXML
-    private void login() {
+    void login() {
 
         try {
             Parent login = FXMLLoader.load(getClass().getResource("/visao/Principal.fxml"));
@@ -52,7 +52,17 @@ public class ControladorLogin implements Initializable {
             Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+    void inicio(){
+       
+        try {
+            Parent inicio = FXMLLoader.load(getClass().getResource("/visao/Login.fxml"));
+            borderLogin.setCenter(inicio);
+        } catch (IOException ex) {
+            Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         controladorLogin = this;
