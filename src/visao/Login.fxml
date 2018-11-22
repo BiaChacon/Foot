@@ -11,36 +11,46 @@
 
 <BorderPane fx:id="borderLogin" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorLogin">
    <center>
-      <AnchorPane fx:id="anchorLogin" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="anchorLogin" prefHeight="700.0" prefWidth="1372.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="login" layoutX="600.0" layoutY="557.0" onAction="#login" prefHeight="37.0" prefWidth="120.0" style="-fx-background-color: deepskyblue;" text="LOGIN" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="btCadastrar" layoutX="738.0" layoutY="557.0" onAction="#cadastrarTime" prefHeight="37.0" prefWidth="120.0" style="-fx-background-color: DarkOrange;" text="CADASTRAR" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </JFXButton>
-            <JFXTextField fx:id="textSenha" focusColor="DEEPSKYBLUE" layoutX="600.0" layoutY="482.0" prefHeight="37.0" prefWidth="258.0" unFocusColor="DEEPSKYBLUE" />
-            <JFXTextField fx:id="textUser" focusColor="DEEPSKYBLUE" layoutX="600.0" layoutY="400.0" prefHeight="37.0" prefWidth="259.0" unFocusColor="DEEPSKYBLUE" />
-            <Label layoutX="600.0" layoutY="461.0" text="SENHA:" textFill="DEEPSKYBLUE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
-            <Label layoutX="600.0" layoutY="379.0" text="USUÁRIO:" textFill="DEEPSKYBLUE">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
             <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="654.0" layoutY="181.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@img/soccer-ball.png" />
                </image>
             </ImageView>
-            <Label fx:id="labelMensagem" alignment="CENTER" contentDisplay="CENTER" layoutX="600.0" layoutY="528.0" prefHeight="21.0" prefWidth="257.0" textFill="RED" />
+            <ImageView fitHeight="783.0" fitWidth="1393.0" layoutX="10.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/Design%20sem%20nome.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="636.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/soccer-ball.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="591.0" layoutY="471.0" text="SENHA:" textFill="DARKORANGE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="591.0" layoutY="389.0" text="USUÁRIO:" textFill="DARKORANGE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="login" layoutX="591.0" layoutY="567.0" onAction="#login" prefHeight="37.0" prefWidth="120.0" style="-fx-background-color: deepskyblue;" text="LOGIN" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btCadastrar" layoutX="729.0" layoutY="567.0" onAction="#cadastrarTime" prefHeight="37.0" prefWidth="120.0" style="-fx-background-color: DarkOrange;" text="CADASTRAR" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXButton>
+            <JFXTextField fx:id="textUser" focusColor="DARKORANGE" layoutX="591.0" layoutY="410.0" prefHeight="37.0" prefWidth="259.0" unFocusColor="DARKORANGE" />
+            <JFXTextField fx:id="textSenha" focusColor="DARKORANGE" layoutX="591.0" layoutY="492.0" prefHeight="37.0" prefWidth="258.0" unFocusColor="DARKORANGE" />
+            <Label fx:id="labelMensagem" alignment="CENTER" contentDisplay="CENTER" layoutX="610.0" layoutY="538.0" prefHeight="21.0" prefWidth="257.0" textFill="RED" />
          </children>
       </AnchorPane>
    </center>
