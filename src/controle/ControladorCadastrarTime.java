@@ -11,9 +11,9 @@ import modelo.Time;
 import persistencia.TimeDAO;
 
 public class ControladorCadastrarTime {
-    
+
     TimeDAO timeDAO = new TimeDAO();
-    
+
     @FXML
     private JFXButton btCadastrarTime, btCancelarCt;
 
@@ -35,20 +35,18 @@ public class ControladorCadastrarTime {
 
         Date df = Date.from(dtFund.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         java.sql.Date dfSql = new java.sql.Date(df.getTime());
-        
-        double patrimonio = Double.parseDouble(textPatrimonio.getText());
-        
-        Time t = new Time(textUser.getText(), textSenha.getText(), textNomeTime.getText(), dfSql, patrimonio);
-       
-        Boolean v = timeDAO.verificarTime(t);
-        if(v){
-            labelMensg.setText("Usuário já existe");
-        }else{
-            timeDAO.insertIntoTime(t);
-        }
-        
-        ControladorLogin.controladorLogin.login();
 
+        double patrimonio = Double.parseDouble(textPatrimonio.getText());
+
+        Time t = new Time(textUser.getText(), textSenha.getText(), textNomeTime.getText(), dfSql, patrimonio);
+
+        Boolean v = timeDAO.verificarTime(t);
+        if (v) {
+            labelMensg.setText("Usuário já existe");
+        } else {
+            timeDAO.insertIntoTime(t);
+            ControladorLogin.controladorLogin.inicio();
+        }
     }
 
 }

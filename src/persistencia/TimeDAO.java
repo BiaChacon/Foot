@@ -13,22 +13,22 @@ public class TimeDAO {
 
     private ConnectionDatabase c = new ConnectionDatabase();
 
-    private final String LOGIN = "SELECT * FROM TIME WHERE usuario = ? AND senha = ?;";
+    private final String LOGIN = "SELECT * FROM TEAM WHERE usuario = ? AND senha = ?;";
 
-    private final String INSERT = "INSERT INTO TIME(usuario, senha, nome, dataFundacao, patrimonio) VALUES (?, ?, ?, ?, ?);";
+    private final String INSERT = "INSERT INTO TEAM(usuario, senha, nome, dataFundacao, patrimonio, ID_ATLETA, ID_JOGO, ID_FINANCEIRO) VALUES (?, ?, ?, ?, ?, null, null, null);";
 
-    private final String UPDATE = "UPDATE TIME  SET usuario = ?, senha = ?, nome = ?, dataFundacao = ?, patrimonio = ? WHERE id = ?;";
+    private final String UPDATE = "UPDATE TEAM  SET usuario = ?, senha = ?, nome = ?, dataFundacao = ?, patrimonio = ? WHERE id = ?;";
 
-    private final String DELETE = "DELETE FROM TIME WHERE id = ?;";
+    private final String DELETE = "DELETE FROM TEAM WHERE id = ?;";
 
-    private final String LISTTIME = "SELECT * FROM TIME";
+    private final String LISTTIME = "SELECT * FROM TEAM";
     
-    private final String VERIFICAR = "SELECT * FROM TIME WHERE usuario = ?;";
+    private final String VERIFICAR = "SELECT * FROM TEAM WHERE usuario = ?;";
     
     public Boolean verificarTime(Time t) {
         try {
             c.dbConnection();
-
+ 
             PreparedStatement pst = c.getConnection().prepareStatement(VERIFICAR);
 
             pst.setString(1, t.getUsuario());
@@ -91,6 +91,7 @@ public class TimeDAO {
             pst.setDate(4, t.getDataFundacao());
             pst.setDouble(5, t.getPatrimonio());
             pst.executeUpdate();
+            System.out.println("INSERT");
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erro" + ex);
