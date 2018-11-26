@@ -15,7 +15,7 @@ public class TimeDAO {
 
     private final String LOGIN = "SELECT * FROM TEAM WHERE usuario = ? AND senha = ?;";
 
-    private final String INSERT = "INSERT INTO TEAM(usuario, senha, nome, dataFundacao, patrimonio, ID_ATLETA, ID_JOGO, ID_FINANCEIRO) VALUES (?, ?, ?, ?, ?, null, null, null);";
+    private final String INSERT = "INSERT INTO TEAM(usuario, senha, nome, dataFundacao, patrimonio) VALUES (?, ?, ?, ?, ?);";
 
     private final String UPDATE = "UPDATE TEAM  SET usuario = ?, senha = ?, nome = ?, dataFundacao = ?, patrimonio = ? WHERE id = ?;";
 
@@ -28,7 +28,7 @@ public class TimeDAO {
     public Boolean verificarTime(Time t) {
         try {
             c.dbConnection();
- 
+
             PreparedStatement pst = c.getConnection().prepareStatement(VERIFICAR);
 
             pst.setString(1, t.getUsuario());
