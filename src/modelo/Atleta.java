@@ -1,7 +1,6 @@
 package modelo;
 
 import java.sql.Date;
-import java.text.SimpleDateFormat;
 
 public class Atleta {
 
@@ -9,9 +8,10 @@ public class Atleta {
     private int telefone;
     private double salario;
     private Date dataNasc;
-    //private String date;
+    private int time;
     
-    public Atleta(String nome, String cpf, Date dataNasc, int telefone, String email, String endereco, double salario) {
+    
+    public Atleta(String nome, String cpf, Date dataNasc, int telefone, String email, String endereco, double salario, int time) {
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
@@ -19,9 +19,7 @@ public class Atleta {
         this.endereco = endereco;
         this.dataNasc = dataNasc;
         this.salario = salario;
-        
-        /*SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-        date = formatter.format(dataNasc);*/
+        this.time = time;
     }
 
     public String getNome() {
@@ -80,8 +78,12 @@ public class Atleta {
         this.salario = salario;
     }
 
-    @Override
-    public String toString() {
-        return nome;
+    public int getTime() {
+        return time;
     }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+    
 }

@@ -11,7 +11,7 @@ import modelo.Time;
 import persistencia.TimeDAO;
 
 public class ControladorCadastrarTime {
-
+    
     TimeDAO timeDAO = new TimeDAO();
 
     @FXML
@@ -29,7 +29,7 @@ public class ControladorCadastrarTime {
     private void cancelarCt() {
         ControladorLogin.controladorLogin.inicio();
     }
-
+    
     @FXML
     private void cadastrarTime() {
 
@@ -39,7 +39,7 @@ public class ControladorCadastrarTime {
         double patrimonio = Double.parseDouble(textPatrimonio.getText());
 
         Time t = new Time(textUser.getText(), textSenha.getText(), textNomeTime.getText(), dfSql, patrimonio);
-
+        
         Boolean v = timeDAO.verificarTime(t);
         if (v) {
             labelMensg.setText("Usuário já existe");

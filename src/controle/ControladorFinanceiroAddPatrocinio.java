@@ -3,6 +3,7 @@ package controle;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
+import modelo.Financeiro;
 import modelo.Patrocinio;
 import persistencia.PatrocinioDAO;
 
@@ -24,9 +25,11 @@ public class ControladorFinanceiroAddPatrocinio {
     @FXML
     private void addPatrocinio() {
         
+        int idFinanceiroTime = ControladorLogin.idTime;
+        
         double valorP = Double.parseDouble(textValorP.getText());
         
-        Patrocinio p = new Patrocinio(textNomeP.getText(), valorP);
+        Patrocinio p = new Patrocinio(textNomeP.getText(), valorP, idFinanceiroTime);
 
         patrocinioDAO.insertIntoPatrocinio(p);
 

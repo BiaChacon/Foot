@@ -18,7 +18,9 @@ import modelo.Time;
 import persistencia.TimeDAO;
 
 public class ControladorLogin implements Initializable {
-
+    
+    public static int idTime;
+    
     static ControladorLogin controladorLogin;
 
     TimeDAO timeDAO = new TimeDAO();
@@ -43,6 +45,7 @@ public class ControladorLogin implements Initializable {
         Time t = new Time(textUser.getText(), textSenha.getText());
         if (timeDAO.loginTime(t) != null) {
             try {
+                idTime = t.getId();
                 Parent login = FXMLLoader.load(getClass().getResource("/visao/Principal.fxml"));
                 borderLogin.setCenter(login);
             } catch (IOException ex) {

@@ -8,8 +8,9 @@ public class Jogo {
     private double lucroPartida;
     private boolean concluida;
     private boolean stCouF;
+    private int time;
 
-    public Jogo(int id, String dataHoraPartida, String localJogo, String adversario, String competicao, double lucroPartida, boolean concluida, boolean stCouF) {
+    public Jogo(int id, String dataHoraPartida, String localJogo, String adversario, String competicao, double lucroPartida, boolean concluida, boolean stCouF, int time) {
         this.id = id;
         this.dataHoraPartida = dataHoraPartida;
         this.localJogo = localJogo;
@@ -18,15 +19,17 @@ public class Jogo {
         this.lucroPartida = lucroPartida;
         this.concluida = concluida;
         this.stCouF = stCouF;
+        this.time = time;
     }
 
-    public Jogo(String dataHoraPartida, String localJogo, String adversario, String competicao, boolean concluida, boolean stCouF) {
+    public Jogo(String dataHoraPartida, String localJogo, String adversario, String competicao, boolean concluida, boolean stCouF, int time) {
         this.dataHoraPartida = dataHoraPartida;
         this.localJogo = localJogo;
         this.adversario = adversario;
         this.competicao = competicao;
         this.concluida = concluida;
         this.stCouF = stCouF;
+        this.time = time;
     }
 
     public Jogo(double lucroPartida, boolean concluida) {
@@ -97,4 +100,13 @@ public class Jogo {
     public void setStCouF(boolean stCouF) {
         this.stCouF = stCouF;
     }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+    
 }

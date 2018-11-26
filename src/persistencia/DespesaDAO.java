@@ -1,5 +1,6 @@
 package persistencia;
 
+import controle.ControladorLogin;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ public class DespesaDAO {
 
     private ConnectionDatabase c = new ConnectionDatabase();
 
-    private final String INSERT = "INSERT INTO DESPESA(nome, valor) VALUES (?, ?);";
+    private final String INSERT = "INSERT INTO DESPESA(nome, valor, ID_TEAM) VALUES (?, ?, ?);";
 
     private final String DELETE = "DELETE FROM DESPESA WHERE id = ?;";
 
@@ -25,6 +26,7 @@ public class DespesaDAO {
             PreparedStatement pst = c.getConnection().prepareStatement(INSERT);
             pst.setString(1, d.getNome());
             pst.setDouble(2, d.getValor());
+            pst.setInt(3, d.getFinanceiroTime());
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
@@ -56,12 +58,15 @@ public class DespesaDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Despesa d = new Despesa(
-                        rs.getString("nome"),
-                        rs.getDouble("valor"),
-                        rs.getInt("id")
-                );
-                listaDespesa.add(d);
+                if(rs.getInt("ID_TEAM") == ControladorLogin.idTime){
+                    Despesa d = new Despesa(
+                            rs.getString("nome"),
+                            rs.getDouble("valor"),
+                            rs.getInt("id"),
+                            rs.getInt("ID_TEAM")
+                    );
+                    listaDespesa.add(d);
+                }
             }
             c.dbConnectionClose();
         } catch (SQLException e) {

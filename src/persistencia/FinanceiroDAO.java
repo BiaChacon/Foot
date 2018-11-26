@@ -1,5 +1,6 @@
 package persistencia;
 
+import controle.ControladorLogin;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ public class FinanceiroDAO {
 
     private ConnectionDatabase c = new ConnectionDatabase();
 
-    private final String INSERT = "INSERT INTO FINANCEIRO(dataBalanco, patrocinios, despesas, lucroPartidas, salarios, total) VALUES (?, ?, ?, ?, ?, ?);";
+    private final String INSERT = "INSERT INTO FINANCEIRO(dataBalanco, patrocinios, despesas, lucroPartidas, salarios, total, ID_TEAM) VALUES (?, ?, ?, ?, ?, ?, ?);";
 
     private final String DELETE = "DELETE FROM FINANCEIRO WHERE id = ?;";
 
@@ -29,6 +30,7 @@ public class FinanceiroDAO {
             pst.setDouble(4, f.getLucroPartidas());
             pst.setDouble(5, f.getSalarios());
             pst.setDouble(6, f.getTotal());
+            pst.setInt(7, f.getTime());
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
@@ -45,7 +47,7 @@ public class FinanceiroDAO {
             pst.setInt(1, f.getId());
             pst.execute();
             System.out.println(DELETE);
-            
+
             c.dbConnectionClose();
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
@@ -62,16 +64,20 @@ public class FinanceiroDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Financeiro f = new Financeiro(
-                        rs.getInt("id"),
-                        rs.getDate("dataBalanco"),
-                        rs.getDouble("patrocinios"),
-                        rs.getDouble("despesas"),
-                        rs.getDouble("lucroPartidas"),
-                        rs.getDouble("salarios"),
-                        rs.getDouble("total")
-                );
-                listaFinanceiro.add(f);
+                if (rs.getInt("ID_TEAM") == ControladorLogin.idTime) {
+                    Financeiro f = new Financeiro(
+                            rs.getInt("id"),
+                            rs.getDate("dataBalanco"),
+                            rs.getDouble("patrocinios"),
+                            rs.getDouble("despesas"),
+                            rs.getDouble("lucroPartidas"),
+                            rs.getDouble("salarios"),
+                            rs.getDouble("total"),
+                            rs.getInt("ID_TEAM")
+                    );
+                    listaFinanceiro.add(f);
+                }
+
             }
             c.dbConnectionClose();
         } catch (SQLException e) {

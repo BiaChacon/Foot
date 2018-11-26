@@ -39,14 +39,11 @@ public class ControladorFinanceiroGerarTotal {
     @FXML
     private JFXButton btCancelar;
 
-    /*public double patrimonio(double patrimonio, double total) {
-        patrimonio = patrimonio + total;
-        return patrimonio;
-    }*/
-
     @FXML
     private void gerarBalancoTotal() {
-
+        
+        int idTime = ControladorLogin.idTime;
+        
         Date db = Date.from(dateBalanco.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         java.sql.Date dbSql = new java.sql.Date(db.getTime());
 
@@ -60,12 +57,7 @@ public class ControladorFinanceiroGerarTotal {
         f.setLucroPartidas((ArrayList<Jogo>) jogoDAO.readJogo());
         f.setSalarios((ArrayList<Atleta>) atletaDAO.readAtleta());
         f.setTotal(0, f.getPatrocinios(), f.getLucroPartidas(), f.getDespesas(), f.getSalarios());
-
-        /*double p = patrimonio(t.getPatrimonio(), f.getTotal());
-        
-        System.out.println(p);
-        t.setPatrimonio(p);
-        System.out.println(p);*/
+        f.setTime(idTime);
         
         financeiroDAO.insertIntoFinanceiro(f);
 

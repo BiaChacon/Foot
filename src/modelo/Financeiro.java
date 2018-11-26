@@ -12,8 +12,9 @@ public class Financeiro {
     private double lucroPartidas;
     private double salarios;
     private double total;
+    private int time;
 
-    public Financeiro(int id, Date dataBalanco, double patrocinios, double despesas, double lucroPartidas, double salarios, double total) {
+    public Financeiro(int id, Date dataBalanco, double patrocinios, double despesas, double lucroPartidas, double salarios, double total, int time) {
         this.id = id;
         this.dataBalanco = dataBalanco;
         this.patrocinios = patrocinios;
@@ -21,10 +22,10 @@ public class Financeiro {
         this.lucroPartidas = lucroPartidas;
         this.salarios = salarios;
         this.total = total;
+        this.time = time;
     }
 
-    public Financeiro() {
-    }
+    public Financeiro() {}
 
     private ArrayList<Patrocinio> listaPatrocinio = new ArrayList<>();
 
@@ -102,4 +103,13 @@ public class Financeiro {
         total = (patrocinios + lucroPartidas) - (despesas + salarios);
         this.total = total;
     }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
+    }
+    
 }

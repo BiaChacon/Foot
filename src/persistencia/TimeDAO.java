@@ -91,7 +91,6 @@ public class TimeDAO {
             pst.setDate(4, t.getDataFundacao());
             pst.setDouble(5, t.getPatrimonio());
             pst.executeUpdate();
-            System.out.println("INSERT");
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erro" + ex);

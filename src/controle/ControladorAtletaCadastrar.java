@@ -43,6 +43,8 @@ public class ControladorAtletaCadastrar implements Initializable {
     @FXML
     private void cadastrarAtleta() {
         
+        int idTime = ControladorLogin.idTime;
+        
         double salario = Double.parseDouble(textSalario.getText());
 
         int telefone = Integer.parseInt(textTelefone.getText());
@@ -51,7 +53,7 @@ public class ControladorAtletaCadastrar implements Initializable {
         
         java.sql.Date dnSql = new java.sql.Date(dn.getTime());
 
-        Atleta a = new Atleta(textNome.getText(), textCPF.getText(), dnSql, telefone, textEmail.getText(), textEndereco.getText(), salario);
+        Atleta a = new Atleta(textNome.getText(), textCPF.getText(), dnSql, telefone, textEmail.getText(), textEndereco.getText(), salario, idTime);
 
         atletaDAO.insertIntoAtleta(a);
 

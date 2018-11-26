@@ -1,5 +1,6 @@
 package persistencia;
 
+import controle.ControladorLogin;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,9 +14,9 @@ public class AtletaDAO {
 
     private ConnectionDatabase c = new ConnectionDatabase();
 
-    private final String INSERT = "INSERT INTO ATLETA(nome, cpf, dataNasc, telefone, email, endereco, salario) VALUES (?, ?, ?, ?, ?, ?, ?);";
+    private final String INSERT = "INSERT INTO ATLETA(nome, cpf, dataNasc, telefone, email, endereco, salario, ID_TEAM) VALUES (?, ?, ?, ?, ?, ?, ?, ?);";
 
-    private final String UPDATE = "UPDATE ATLETA SET nome = ?, dataNasc = ?, telefone = ?, email = ?, endereco = ?, salario = ? WHERE cpf = ?;";
+    private final String UPDATE = "UPDATE ATLETA SET nome = ?, dataNasc = ?, telefone = ?, email = ?, endereco = ?, salario = ?, ID_TEAM = ? WHERE cpf = ?;";
 
     private final String DELETE = "DELETE FROM ATLETA WHERE cpf = ?;";
 
@@ -32,10 +33,11 @@ public class AtletaDAO {
             pst.setString(5, a.getEmail());
             pst.setString(6, a.getEndereco());
             pst.setDouble(7, a.getSalario());
+            pst.setInt(8, a.getTime());
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erro"+ex);
+            System.out.println("erro" + ex);
         }
         c.dbConnectionClose();
 
@@ -51,9 +53,9 @@ public class AtletaDAO {
             pst.setString(4, a.getEmail());
             pst.setString(5, a.getEndereco());
             pst.setDouble(6, a.getSalario());
-            pst.setString(7, a.getCpf());
+            pst.setInt(7, a.getTime());
+            pst.setString(8, a.getCpf());
             pst.executeUpdate();
-            System.out.println("oi");
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -83,16 +85,21 @@ public class AtletaDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Atleta a = new Atleta(
-                        rs.getString("nome"),
-                        rs.getString("cpf"),
-                        rs.getDate("dataNasc"),
-                        rs.getInt("telefone"),
-                        rs.getString("email"),
-                        rs.getString("endereco"),
-                        rs.getDouble("salario")
-                );
-                listaAtleta.add(a);
+                
+                if (rs.getInt("ID_TEAM") == ControladorLogin.idTime){
+                    Atleta a = new Atleta(
+                            rs.getString("nome"),
+                            rs.getString("cpf"),
+                            rs.getDate("dataNasc"),
+                            rs.getInt("telefone"),
+                            rs.getString("email"),
+                            rs.getString("endereco"),
+                            rs.getDouble("salario"),
+                            rs.getInt("ID_TEAM")
+                    );
+                    listaAtleta.add(a);
+                }
+
             }
             c.dbConnectionClose();
         } catch (SQLException e) {

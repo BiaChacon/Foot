@@ -5,16 +5,19 @@ public class Despesa {
     private String nome;
     private Double valor;
     private int id;
+    private int financeiroTime;
 
-    public Despesa(String nome, Double valor) {
+    public Despesa(String nome, Double valor, int financeiroTime) {
         this.nome = nome;
         this.valor = valor;
+        this.financeiroTime = financeiroTime;
     }
 
-    public Despesa(String nome, Double valor, int id) {
+    public Despesa(String nome, Double valor, int id, int financeiroTime) {
         this.nome = nome;
         this.valor = valor;
         this.id = id;
+         this.financeiroTime = financeiroTime;
     }
 
     public String getNome() {
@@ -40,4 +43,13 @@ public class Despesa {
     public void setId(int id) {
         this.id = id;
     }
+
+    public int getFinanceiroTime() {
+        return financeiroTime;
+    }
+
+    public void setFinanceiroTime(int financeiroTime) {
+        this.financeiroTime = financeiroTime;
+    }
+    
 }

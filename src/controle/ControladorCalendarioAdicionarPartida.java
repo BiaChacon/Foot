@@ -36,7 +36,9 @@ public class ControladorCalendarioAdicionarPartida {
 
     @FXML
     private void cadastrarPartida() {
-
+        
+        int idTime = ControladorLogin.idTime;
+        
         Date d = Date.from(datePartida.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         SimpleDateFormat formatador = new SimpleDateFormat("dd-MM-yyyy");
         String date = formatador.format(d);
@@ -52,7 +54,7 @@ public class ControladorCalendarioAdicionarPartida {
             stCouF = false;
         }
 
-        Jogo j = new Jogo(dh, textLocal.getText(), textAdv.getText(), textCamp.getText(), false, stCouF);
+        Jogo j = new Jogo(dh, textLocal.getText(), textAdv.getText(), textCamp.getText(), false, stCouF, idTime);
         jogoDAO.insertIntoJogo(j);
 
         ControladorPrincipal.controlador.gerenciarJogos();

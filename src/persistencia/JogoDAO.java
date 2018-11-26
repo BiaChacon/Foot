@@ -1,5 +1,6 @@
 package persistencia;
 
+import controle.ControladorLogin;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,8 +15,8 @@ public class JogoDAO {
 
     private ConnectionDatabase c = new ConnectionDatabase();
 
-    private final String INSERT = "INSERT INTO JOGO(dataHoraPartida, localJogo, adversario, competicao, status, stCouF) VALUES (?, ?, ?, ?, ?, ?);";
-    
+    private final String INSERT = "INSERT INTO JOGO(dataHoraPartida, localJogo, adversario, competicao, status, stCouF, ID_TEAM) VALUES (?, ?, ?, ?, ?, ?, ?);";
+
     private final String UPDATEJOGO = "UPDATE JOGO SET lucroPartida = ?, status = ? WHERE id = ?;";
 
     private final String DELETE = "DELETE FROM JOGO WHERE id = ?;";
@@ -32,6 +33,7 @@ public class JogoDAO {
             pst.setString(4, j.getCompeticao());
             pst.setBoolean(5, j.isConcluida());
             pst.setBoolean(6, j.isStCouF());
+            pst.setInt(7, j.getTime());
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
@@ -77,23 +79,27 @@ public class JogoDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Jogo j = new Jogo(
-                        rs.getInt("id"),
-                        rs.getString("dataHoraPartida"),
-                        rs.getString("localJogo"),
-                        rs.getString("adversario"),
-                        rs.getString("competicao"),
-                        rs.getDouble("lucroPartida"),
-                        rs.getBoolean("status"),
-                        rs.getBoolean("stCouF")
-                );
-                listaJogo.add(j);
+
+                if (rs.getInt("ID_TEAM") == ControladorLogin.idTime) {
+                    Jogo j = new Jogo(
+                            rs.getInt("id"),
+                            rs.getString("dataHoraPartida"),
+                            rs.getString("localJogo"),
+                            rs.getString("adversario"),
+                            rs.getString("competicao"),
+                            rs.getDouble("lucroPartida"),
+                            rs.getBoolean("status"),
+                            rs.getBoolean("stCouF"),
+                            rs.getInt("ID_TEAM")
+                    );
+                    listaJogo.add(j);
+                }
+
             }
             c.dbConnectionClose();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("lista de jogos " + listaJogo);
         return listaJogo;
     }
 }

@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import modelo.Despesa;
+import modelo.Financeiro;
 import persistencia.DespesaDAO;
 
 public class ControladorFinanceiroAddDespesa {
@@ -23,10 +24,12 @@ public class ControladorFinanceiroAddDespesa {
 
     @FXML
     private void addDespesa() {
-               
+
+        int idFinanceiroTime = ControladorLogin.idTime;
+        
         double valorD = Double.parseDouble(textValorD.getText());
         
-        Despesa d = new Despesa(textNomeD.getText(), valorD);
+        Despesa d = new Despesa(textNomeD.getText(), valorD, idFinanceiroTime);
 
         despesaDAO.insertIntoDespesa(d);
 

@@ -1,5 +1,6 @@
 package persistencia;
 
+import controle.ControladorLogin;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +14,7 @@ public class PatrocinioDAO {
 
     private ConnectionDatabase c = new ConnectionDatabase();
 
-    private final String INSERT = "INSERT INTO PATROCINIO(nome, valor) VALUES (?, ?);";
+    private final String INSERT = "INSERT INTO PATROCINIO(nome, valor, ID_TEAM) VALUES (?, ?, ?);";
 
     private final String DELETE = "DELETE FROM PATROCINIO WHERE id = ?;";
 
@@ -38,11 +39,8 @@ public class PatrocinioDAO {
         try {
             c.dbConnection();
             PreparedStatement pst = c.getConnection().prepareStatement(DELETE);
-            System.out.println("o id é "+p.getId());
             pst.setInt(1, p.getId());
             pst.execute();
-            System.out.println("tatata");
-            
             c.dbConnectionClose();
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
@@ -59,12 +57,15 @@ public class PatrocinioDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                Patrocinio p = new Patrocinio(
-                        rs.getString("nome"),
-                        rs.getDouble("valor"),
-                        rs.getInt("id")
-                );
-                listaPatrocinio.add(p);
+                if(rs.getInt("ID_TEAM") == ControladorLogin.idTime){
+                    Patrocinio p = new Patrocinio(
+                            rs.getString("nome"),
+                            rs.getDouble("valor"),
+                            rs.getInt("id"),
+                            rs.getInt("ID_TEAM")
+                    );
+                    listaPatrocinio.add(p);
+                }
             }
             c.dbConnectionClose();
         } catch (SQLException e) {
