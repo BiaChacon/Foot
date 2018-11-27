@@ -8,20 +8,20 @@
 
 <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorFinanceiroAddDespesa">
    <children>
-      <Label layoutX="379.0" layoutY="100.0" text="ADICIONAR DESPESA" textFill="BLUEVIOLET">
+      <Label layoutX="404.0" layoutY="98.0" text="ADICIONAR DESPESA" textFill="BLUEVIOLET">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Label>
-      <JFXTextField fx:id="textNomeD" layoutX="400.0" layoutY="198.0" prefHeight="25.0" prefWidth="200.0" />
-      <JFXTextField fx:id="textValorD" layoutX="400.0" layoutY="268.0" prefHeight="25.0" prefWidth="200.0" />
+      <JFXTextField fx:id="textNomeD" focusColor="BLUEVIOLET" layoutX="400.0" layoutY="198.0" prefHeight="31.0" prefWidth="240.0" />
+      <JFXTextField fx:id="textValorD" focusColor="BLUEVIOLET" layoutX="400.0" layoutY="268.0" prefHeight="31.0" prefWidth="240.0" />
       <Label layoutX="400.0" layoutY="175.0" text="NOME DESPESA" textFill="BLUEVIOLET">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <Label layoutX="400.0" layoutY="244.0" text="VALOR DA DESPESA" textFill="BLUEVIOLET">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <JFXButton fx:id="btAddDespesa" layoutX="405.0" layoutY="328.0" onAction="#addDespesa" style="-fx-background-color: GREEN;" text="ADICIONAR" textFill="WHITE">

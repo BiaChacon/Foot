@@ -8,21 +8,21 @@
 
 <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorFinanceiroAddPatrocinio">
    <children>
-      <Label layoutX="356.0" layoutY="103.0" text="ADICIONAR PATROCÍNIO" textFill="BLUEVIOLET">
+      <Label layoutX="372.0" layoutY="104.0" text="ADICIONAR PATROCÍNIO" textFill="BLUEVIOLET">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="textNomeP" focusColor="BLUEVIOLET" layoutX="400.0" layoutY="198.0" prefHeight="25.0" prefWidth="200.0" />
-      <JFXTextField fx:id="textValorP" focusColor="BLUEVIOLET" layoutX="400.0" layoutY="268.0" prefHeight="25.0" prefWidth="200.0" />
+      <JFXTextField fx:id="textNomeP" focusColor="BLUEVIOLET" layoutX="400.0" layoutY="198.0" prefHeight="31.0" prefWidth="240.0" />
+      <JFXTextField fx:id="textValorP" focusColor="BLUEVIOLET" layoutX="400.0" layoutY="268.0" prefHeight="31.0" prefWidth="240.0" />
       <Label layoutX="400.0" layoutY="175.0" text="NOME PATROCINADOR" textFill="BLUEVIOLET">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <Label layoutX="400.0" layoutY="244.0" text="VALOR DO PATROCÍNIO" textFill="BLUEVIOLET">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Label>
       <JFXButton fx:id="btAddPatrocinio" layoutX="395.0" layoutY="328.0" onAction="#addPatrocinio" style="-fx-background-color: GREEN;" text="ADICIONAR" textFill="WHITE">

@@ -2,6 +2,7 @@ package controle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.time.ZoneId;
 import java.util.Date;
@@ -21,7 +22,11 @@ public class ControladorCadastrarTime {
     private JFXDatePicker dtFund;
 
     @FXML
-    private JFXTextField textSenha, textPatrimonio, textNomeTime, textUser;
+    private JFXTextField textPatrimonio, textNomeTime, textUser;
+    
+    @FXML
+    private JFXPasswordField textSenha;
+    
     @FXML
     private Label labelMensg;
 

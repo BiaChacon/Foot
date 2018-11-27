@@ -48,6 +48,15 @@ public class ControladorPrincipal implements Initializable {
     private void inicio() {
         borderPrincipal.setCenter(anchorInicial);
         labelPrincipal.setText("INÍCIO");
+                
+        labelNomeTime.setText(ControladorLogin.time.getNome());
+        
+        double num = ControladorLogin.time.getPatrimonio(); 
+        String p = Double.toString(num);
+        labelPatrimonio.setText(p);
+        
+        String d = String.valueOf(ControladorLogin.time.getDataFundacao());
+        labelDataFundacao.setText(d);
     }
 
 
@@ -110,14 +119,6 @@ public class ControladorPrincipal implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         controlador = this;
-        
-        labelNomeTime.setText(ControladorLogin.time.getNome());
-        
-        double num = ControladorLogin.time.getPatrimonio(); 
-        String p = Double.toString(num);
-        labelPatrimonio.setText(p);
-        
-        String d = String.valueOf(ControladorLogin.time.getDataFundacao());
-        labelDataFundacao.setText(d);
+        inicio();
     }
 }

@@ -2,6 +2,7 @@ package controle;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.time.ZoneId;
@@ -29,7 +30,7 @@ public class ControladorEditarTime implements Initializable {
     private JFXTextField textUser;
 
     @FXML
-    private JFXTextField textSenha;
+    private JFXPasswordField textSenha;
 
     @FXML
     private JFXButton btCancelarEdit, btEdit;

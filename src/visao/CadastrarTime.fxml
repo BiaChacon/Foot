@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,9 +10,6 @@
 
 <AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorCadastrarTime">
    <children>
-      <JFXDatePicker fx:id="dtFund" defaultColor="DEEPSKYBLUE" layoutX="600.0" layoutY="411.0" prefHeight="37.0" prefWidth="250.0" />
-      <JFXTextField fx:id="textSenha" focusColor="DEEPSKYBLUE" layoutX="600.0" layoutY="327.0" prefHeight="37.0" prefWidth="250.0" />
-      <JFXTextField fx:id="textPatrimonio" focusColor="DEEPSKYBLUE" layoutX="600.0" layoutY="497.0" prefHeight="37.0" prefWidth="250.0" />
       <JFXButton fx:id="btCadastrarTime" layoutX="598.0" layoutY="587.0" onAction="#cadastrarTime" prefHeight="37.0" prefWidth="115.0" style="-fx-background-color: blueviolet;" text="CADASTRAR" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
@@ -24,6 +22,9 @@
       </JFXButton>
       <JFXTextField fx:id="textNomeTime" focusColor="DEEPSKYBLUE" layoutX="600.0" layoutY="171.0" prefHeight="37.0" prefWidth="250.0" />
       <JFXTextField fx:id="textUser" focusColor="DEEPSKYBLUE" layoutX="600.0" layoutY="250.0" prefHeight="37.0" prefWidth="250.0" />
+      <JFXPasswordField fx:id="textSenha" focusColor="DEEPSKYBLUE" layoutX="600.0" layoutY="333.0" prefHeight="37.0" prefWidth="250.0" />
+      <JFXDatePicker fx:id="dtFund" defaultColor="DEEPSKYBLUE" layoutX="600.0" layoutY="411.0" prefHeight="37.0" prefWidth="250.0" />
+      <JFXTextField fx:id="textPatrimonio" focusColor="DEEPSKYBLUE" layoutX="600.0" layoutY="497.0" prefHeight="37.0" prefWidth="250.0" />
       <Label layoutX="600.0" layoutY="150.0" text="NOME TIME:" textFill="DEEPSKYBLUE">
          <font>
             <Font name="System Bold" size="15.0" />

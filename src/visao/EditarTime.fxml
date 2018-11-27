@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,35 +10,35 @@
 
 <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorEditarTime">
    <children>
-      <Label layoutX="300.0" layoutY="149.0" prefHeight="21.0" prefWidth="116.0" text="NOME TIME:" textFill="BLUEVIOLET">
+      <Label layoutX="350.0" layoutY="149.0" prefHeight="21.0" prefWidth="116.0" text="NOME TIME:" textFill="BLUEVIOLET">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>
-      <Label layoutX="300.0" layoutY="242.0" prefHeight="21.0" prefWidth="153.0" text="DATA FUNDAÇÃO:" textFill="BLUEVIOLET">
+      <Label layoutX="350.0" layoutY="242.0" prefHeight="21.0" prefWidth="153.0" text="DATA FUNDAÇÃO:" textFill="BLUEVIOLET">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Label>
-      <JFXTextField fx:id="textNomeT" focusColor="BLUEVIOLET" layoutX="300.0" layoutY="182.0" prefHeight="31.0" prefWidth="240.0" />
-      <JFXButton fx:id="btCancelarEdit" layoutX="433.0" layoutY="522.0" onAction="#cancelarEdit" prefHeight="31.0" prefWidth="98.0" style="-fx-background-color: red;" text="CANCELAR" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font></JFXButton>
-      <JFXButton fx:id="btEdit" layoutX="309.0" layoutY="522.0" onAction="#editarTime" prefHeight="31.0" prefWidth="98.0" style="-fx-background-color: green;" text="EDITAR" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font></JFXButton>
-      <JFXDatePicker fx:id="dtFund" defaultColor="BLUEVIOLET" layoutX="300.0" layoutY="275.0" prefHeight="31.0" prefWidth="240.0" />
-      <Label layoutX="299.0" layoutY="423.0" text="SENHA" textFill="BLUEVIOLET">
+      <Label layoutX="350.0" layoutY="340.0" text="USUÁRIO" textFill="BLUEVIOLET">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="299.0" layoutY="340.0" text="USUÁRIO" textFill="BLUEVIOLET">
+      <Label layoutX="350.0" layoutY="423.0" text="SENHA" textFill="BLUEVIOLET">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="textUser" focusColor="BLUEVIOLET" layoutX="300.0" layoutY="374.0" prefHeight="31.0" prefWidth="240.0" />
-      <JFXTextField fx:id="textSenha" focusColor="BLUEVIOLET" layoutX="300.0" layoutY="450.0" prefHeight="31.0" prefWidth="240.0" />
+      <JFXTextField fx:id="textNomeT" focusColor="BLUEVIOLET" layoutX="350.0" layoutY="182.0" prefHeight="31.0" prefWidth="240.0" />
+      <JFXDatePicker fx:id="dtFund" defaultColor="BLUEVIOLET" layoutX="350.0" layoutY="275.0" prefHeight="31.0" prefWidth="240.0" />
+      <JFXTextField fx:id="textUser" focusColor="BLUEVIOLET" layoutX="350.0" layoutY="374.0" prefHeight="31.0" prefWidth="240.0" />
+      <JFXPasswordField fx:id="textSenha" focusColor="BLUEVIOLET" layoutX="350.0" layoutY="454.0" prefHeight="31.0" prefWidth="240.0" />
+      <JFXButton fx:id="btCancelarEdit" layoutX="476.0" layoutY="522.0" onAction="#cancelarEdit" prefHeight="31.0" prefWidth="98.0" style="-fx-background-color: red;" text="CANCELAR" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
+      <JFXButton fx:id="btEdit" layoutX="359.0" layoutY="522.0" onAction="#editarTime" prefHeight="31.0" prefWidth="98.0" style="-fx-background-color: green;" text="EDITAR" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></JFXButton>
    </children>
 </AnchorPane>

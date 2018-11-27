@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -48,8 +49,11 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXButton>
-            <JFXTextField fx:id="textUser" focusColor="DARKORANGE" layoutX="591.0" layoutY="410.0" prefHeight="37.0" prefWidth="259.0" unFocusColor="DARKORANGE" />
-            <JFXTextField fx:id="textSenha" focusColor="DARKORANGE" layoutX="591.0" layoutY="492.0" prefHeight="37.0" prefWidth="258.0" unFocusColor="DARKORANGE" />
+            <JFXTextField fx:id="textUser" focusColor="DARKORANGE" layoutX="591.0" layoutY="410.0" prefHeight="37.0" prefWidth="259.0" unFocusColor="DARKORANGE">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font></JFXTextField>
+            <JFXPasswordField fx:id="textSenha" focusColor="DARKORANGE" layoutX="595.0" layoutY="492.0" prefHeight="31.0" prefWidth="252.0" unFocusColor="DARKORANGE" />
             <Label fx:id="labelMensagem" alignment="CENTER" contentDisplay="CENTER" layoutX="610.0" layoutY="538.0" prefHeight="21.0" prefWidth="257.0" textFill="RED">
                <font>
                   <Font name="System Bold" size="15.0" />

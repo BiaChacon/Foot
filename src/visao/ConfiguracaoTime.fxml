@@ -6,15 +6,15 @@
 
 <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorConfiguracaoTime">
    <children>
-      <JFXButton layoutX="400.0" layoutY="168.0" onAction="#editarTime" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: deepskyblue;" text="EDITAR TIME" textFill="WHITE">
+      <JFXButton layoutX="425.0" layoutY="168.0" onAction="#editarTime" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: deepskyblue;" text="EDITAR TIME" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></JFXButton>
-      <JFXButton layoutX="400.0" layoutY="234.0" onAction="#editarImagem" style="-fx-background-color: deepskyblue;" text="EDITAR IMAGEM" textFill="WHITE">
+      <JFXButton layoutX="425.0" layoutY="234.0" onAction="#editarImagem" style="-fx-background-color: deepskyblue;" text="EDITAR IMAGEM" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></JFXButton>
-      <JFXButton layoutX="400.0" layoutY="295.0" onAction="#apagarTime" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: red;" text="APAGAR TIME" textFill="WHITE">
+      <JFXButton layoutX="425.0" layoutY="295.0" onAction="#apagarTime" prefHeight="31.0" prefWidth="140.0" style="-fx-background-color: red;" text="APAGAR TIME" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

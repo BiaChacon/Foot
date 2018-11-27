@@ -1,6 +1,7 @@
 package controle;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
@@ -36,7 +37,7 @@ public class ControladorLogin implements Initializable {
     @FXML
     private JFXButton btCadastrar;
     @FXML
-    private JFXTextField textSenha;
+    private JFXPasswordField textSenha;
     @FXML
     private JFXTextField textUser;
     @FXML
@@ -83,6 +84,8 @@ public class ControladorLogin implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         controladorLogin = this;
+        textUser.setStyle("-fx-text-inner-color: white;");
+        textSenha.setStyle("-fx-text-inner-color: white;");
     }
 
 }

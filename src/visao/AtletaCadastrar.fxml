@@ -10,6 +10,7 @@
 <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorAtletaCadastrar">
    <children>
       <JFXTextField fx:id="textNome" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="84.0" prefHeight="31.0" prefWidth="223.0" />
+      <JFXDatePicker fx:id="dateNascimento" defaultColor="BLUEVIOLET" layoutX="369.0" layoutY="153.0" prefHeight="31.0" prefWidth="223.0" />
       <JFXTextField fx:id="textCPF" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="222.0" prefHeight="31.0" prefWidth="223.0" />
       <JFXTextField fx:id="textEndereco" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="285.0" prefHeight="31.0" prefWidth="223.0" />
       <JFXTextField fx:id="textTelefone" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="353.0" prefHeight="31.0" prefWidth="223.0" />
@@ -47,7 +48,6 @@
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <JFXDatePicker fx:id="dateNascimento" defaultColor="BLUEVIOLET" layoutX="369.0" layoutY="153.0" prefHeight="31.0" prefWidth="223.0" />
       <JFXButton fx:id="btCancelar" layoutX="492.0" layoutY="555.0" onAction="#cancelarCA" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: red;" text="CANCELAR" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />

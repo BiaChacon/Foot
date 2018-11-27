@@ -29,8 +29,6 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <JFXDatePicker fx:id="datePartida" defaultColor="BLUEVIOLET" layoutX="300.0" layoutY="35.0" prefHeight="31.0" prefWidth="240.0" />
-            <JFXTimePicker fx:id="timePartida" defaultColor="BLUEVIOLET" layoutX="300.0" layoutY="123.0" prefHeight="31.0" prefWidth="243.0" />
             <Label layoutX="300.0" layoutY="14.0" text="DATA" textFill="BLUEVIOLET">
                <font>
                   <Font name="System Bold" size="15.0" />
@@ -41,6 +39,8 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Label>
+            <JFXDatePicker fx:id="datePartida" defaultColor="BLUEVIOLET" layoutX="300.0" layoutY="35.0" prefHeight="31.0" prefWidth="240.0" />
+            <JFXTimePicker fx:id="timePartida" defaultColor="BLUEVIOLET" layoutX="300.0" layoutY="123.0" prefHeight="31.0" prefWidth="243.0" />
             <JFXTextField fx:id="textCamp" focusColor="BLUEVIOLET" layoutX="300.0" layoutY="198.0" prefHeight="37.0" prefWidth="216.0" />
             <JFXTextField fx:id="textAdv" focusColor="BLUEVIOLET" layoutX="300.0" layoutY="302.0" prefHeight="36.0" prefWidth="212.0" />
             <JFXTextField fx:id="textLocal" focusColor="BLUEVIOLET" layoutX="300.0" layoutY="385.0" prefHeight="31.0" prefWidth="223.0" />

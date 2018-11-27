@@ -82,11 +82,11 @@ public class ControladorCalendario implements Initializable {
             p.setX("  X");
 
             if (listaJogo.get(i).isStCouF()) {
-                p.setTimeCasa(t.getNome());
+                p.setTimeCasa(ControladorLogin.time.getNome());
                 p.setTimeFora(listaJogo.get(i).getAdversario());
             } else {
                 p.setTimeCasa(listaJogo.get(i).getAdversario());
-                p.setTimeFora(t.getNome());
+                p.setTimeFora(ControladorLogin.time.getNome());
             }
 
             listaPartida.add(p);
