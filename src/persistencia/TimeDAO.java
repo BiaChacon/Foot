@@ -25,17 +25,18 @@ public class TimeDAO {
     
     private final String VERIFICAR = "SELECT * FROM TEAM WHERE usuario = ?;";
     
-    public Boolean verificarTime(Time t) {
+    
+    public Boolean verificarTime(String user) {
         try {
             c.dbConnection();
 
             PreparedStatement pst = c.getConnection().prepareStatement(VERIFICAR);
 
-            pst.setString(1, t.getUsuario());
+            pst.setString(1, user);
 
             ResultSet rst = pst.executeQuery();
 
-            if (rst != null) {
+            if (rst.next()) {
                 c.dbConnectionClose();
                 return true;
             }
@@ -47,18 +48,24 @@ public class TimeDAO {
         }
         return false;
     }
+    
+    
     public Time loginTime(Time t) {
         try {
+            
             c.dbConnection();
 
+            System.out.println(t.toString());
+            
             PreparedStatement pst = c.getConnection().prepareStatement(LOGIN);
 
             pst.setString(1, t.getUsuario());
             pst.setString(2, t.getSenha());
 
             ResultSet rst = pst.executeQuery();
-
-            if (rst != null) {
+            
+            System.out.println(rst.toString());
+            if (rst.next()) {
                 Time tr = new Time(
                         rst.getInt("id"),
                         rst.getString("usuario"),
@@ -108,6 +115,7 @@ public class TimeDAO {
             pst.setString(3, t.getNome());
             pst.setDate(4, t.getDataFundacao());
             pst.setDouble(5, t.getPatrimonio());
+            pst.setInt(6, t.getId());
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
@@ -116,12 +124,14 @@ public class TimeDAO {
 
     }
 
-    public void deleteFromTime(Time t) {
+    public void deleteFromTime(int idTime) {
         try {
+            System.out.println(idTime);
             c.dbConnection();
             PreparedStatement pst = c.getConnection().prepareStatement(DELETE);
-            pst.setInt(1, t.getId());
+            pst.setInt(1, idTime);
             pst.execute();
+            System.out.println("executou");
             c.dbConnectionClose();
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);

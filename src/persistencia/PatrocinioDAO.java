@@ -26,6 +26,7 @@ public class PatrocinioDAO {
             PreparedStatement pst = c.getConnection().prepareStatement(INSERT);
             pst.setString(1, p.getNome());
             pst.setDouble(2, p.getValor());
+            pst.setInt(3, p.getFinanceiroTime());
             pst.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);

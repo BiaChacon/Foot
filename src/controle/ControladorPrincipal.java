@@ -104,24 +104,20 @@ public class ControladorPrincipal implements Initializable {
     @FXML
     private void sair() {
          ControladorLogin.controladorLogin.inicio();
-    }
-    
-    public void iniciar(){
-        /*System.out.println(t.getNome() +" "+ t.getDataFundacao());
-        labelNomeTime.setText(t.getNome());
-        
-        double num = t.getPatrimonio(); 
-        System.out.println(t.getPatrimonio());
-        String p = Double.toString(num);
-        labelPatrimonio.setText(p);
-        
-        String d = t.getDataFundacao();
-        labelDataFundacao.setText(d);*/
+         ControladorLogin.idTime = 0;
     }
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         controlador = this;
-        //iniciar();
+        
+        labelNomeTime.setText(ControladorLogin.time.getNome());
+        
+        double num = ControladorLogin.time.getPatrimonio(); 
+        String p = Double.toString(num);
+        labelPatrimonio.setText(p);
+        
+        String d = String.valueOf(ControladorLogin.time.getDataFundacao());
+        labelDataFundacao.setText(d);
     }
 }

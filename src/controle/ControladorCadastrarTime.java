@@ -40,7 +40,7 @@ public class ControladorCadastrarTime {
 
         Time t = new Time(textUser.getText(), textSenha.getText(), textNomeTime.getText(), dfSql, patrimonio);
         
-        Boolean v = timeDAO.verificarTime(t);
+        Boolean v = timeDAO.verificarTime(textUser.getText());
         if (v) {
             labelMensg.setText("Usuário já existe");
         } else {

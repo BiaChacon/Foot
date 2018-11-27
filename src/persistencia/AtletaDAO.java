@@ -21,7 +21,32 @@ public class AtletaDAO {
     private final String DELETE = "DELETE FROM ATLETA WHERE cpf = ?;";
 
     private final String LISTATLETA = "SELECT * FROM ATLETA";
+    
+    private final String VERIFICAR = "SELECT * FROM ATLETA WHERE cpf = ?;";
+    
+        public Boolean verificar(String cpf) {
+        try {
+            c.dbConnection();
 
+            PreparedStatement pst = c.getConnection().prepareStatement(VERIFICAR);
+
+            pst.setString(1, cpf);
+
+            ResultSet rst = pst.executeQuery();
+
+            if (rst.next()) {
+                c.dbConnectionClose();
+                return true;
+            }
+
+            c.dbConnectionClose();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
+    
     public void insertIntoAtleta(Atleta a) {
         c.dbConnection();
         try {

@@ -81,14 +81,6 @@ public class Time {
         this.nome = nome;
     }
 
-    public double getPatrocinio() {
-        return patrimonio;
-    }
-
-    public void setPatrocinio(double patrimonio) {
-        this.patrimonio = patrimonio;
-    }
-
     public Date getDataFundacao() {
         return dataFundacao;
     }
@@ -111,6 +103,11 @@ public class Time {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    @Override
+    public String toString() {
+        return "Time{" + "id=" + id + ", usuario=" + usuario + ", senha=" + senha + ", nome=" + nome + ", dataFundacao=" + dataFundacao + ", patrimonio=" + patrimonio + ", fotoTime=" + fotoTime + '}';
     }
     
 }

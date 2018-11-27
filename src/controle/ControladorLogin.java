@@ -22,7 +22,9 @@ public class ControladorLogin implements Initializable {
     public static int idTime;
     
     static ControladorLogin controladorLogin;
-
+    
+    static Time time; 
+    
     TimeDAO timeDAO = new TimeDAO();
 
     @FXML
@@ -45,7 +47,8 @@ public class ControladorLogin implements Initializable {
         Time t = new Time(textUser.getText(), textSenha.getText());
         if (timeDAO.loginTime(t) != null) {
             try {
-                idTime = t.getId();
+                idTime = timeDAO.loginTime(t).getId();
+                time = timeDAO.loginTime(t); 
                 Parent login = FXMLLoader.load(getClass().getResource("/visao/Principal.fxml"));
                 borderLogin.setCenter(login);
             } catch (IOException ex) {

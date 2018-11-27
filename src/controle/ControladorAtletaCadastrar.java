@@ -9,62 +9,73 @@ import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import modelo.Atleta;
 import persistencia.AtletaDAO;
 
 public class ControladorAtletaCadastrar implements Initializable {
 
     AtletaDAO atletaDAO = new AtletaDAO();
-    
+
     @FXML
     private JFXTextField textNome;
-    
+
     @FXML
     private JFXTextField textCPF;
-    
+
     @FXML
     private JFXTextField textEndereco;
-    
+
     @FXML
     private JFXTextField textTelefone;
-    
+
     @FXML
     private JFXTextField textEmail;
-    
+
     @FXML
     private JFXTextField textSalario;
-    
+
     @FXML
     private JFXDatePicker dateNascimento;
-    
+
     @FXML
     private JFXButton btCadastrar, btCancelar;
 
     @FXML
     private void cadastrarAtleta() {
-        
+
         int idTime = ControladorLogin.idTime;
-        
+
         double salario = Double.parseDouble(textSalario.getText());
 
         int telefone = Integer.parseInt(textTelefone.getText());
 
         Date dn = Date.from(dateNascimento.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
-        
+
         java.sql.Date dnSql = new java.sql.Date(dn.getTime());
 
         Atleta a = new Atleta(textNome.getText(), textCPF.getText(), dnSql, telefone, textEmail.getText(), textEndereco.getText(), salario, idTime);
+        
+        Boolean vA = atletaDAO.verificar(textCPF.getText());
 
-        atletaDAO.insertIntoAtleta(a);
+        if(vA){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Atenção");
+            alert.setHeaderText("Atleta já cadastrado");
+            alert.setContentText("Digite um atleta não cadastrado");
+            alert.showAndWait();
+        } else {
+            atletaDAO.insertIntoAtleta(a);
+            ControladorPrincipal.controlador.gerenciarAtletas();
+        }
 
-        ControladorPrincipal.controlador.gerenciarAtletas();
     }
-    
+
     @FXML
     private void cancelarCA() {
-       ControladorPrincipal.controlador.gerenciarAtletas(); 
+        ControladorPrincipal.controlador.gerenciarAtletas();
     }
-    
+
     /*public static void mascaraCPF(TextField textField) {
 
         textField.setOnKeyTyped((KeyEvent event) -> {
@@ -118,7 +129,7 @@ public class ControladorAtletaCadastrar implements Initializable {
         });
 
     }
-    */
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 

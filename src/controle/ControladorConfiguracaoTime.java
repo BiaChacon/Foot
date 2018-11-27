@@ -42,7 +42,7 @@ public class ControladorConfiguracaoTime {
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.get() == ButtonType.OK) {
-
+            timeDAO.deleteFromTime(ControladorLogin.idTime);
         }
         
         ControladorLogin.controladorLogin.inicio();

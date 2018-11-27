@@ -10,7 +10,6 @@ import modelo.Atleta;
 import modelo.Despesa;
 import modelo.Financeiro;
 import modelo.Jogo;
-import modelo.Partida;
 import modelo.Patrocinio;
 import modelo.Time;
 import persistencia.AtletaDAO;
@@ -18,6 +17,7 @@ import persistencia.DespesaDAO;
 import persistencia.FinanceiroDAO;
 import persistencia.JogoDAO;
 import persistencia.PatrocinioDAO;
+import persistencia.TimeDAO;
 
 public class ControladorFinanceiroGerarTotal {
 
@@ -30,7 +30,9 @@ public class ControladorFinanceiroGerarTotal {
     PatrocinioDAO patrocinioDAO = new PatrocinioDAO();
 
     DespesaDAO despesaDAO = new DespesaDAO();
-
+    
+    TimeDAO timeDAO = new TimeDAO();
+    
     @FXML
     private JFXDatePicker dateBalanco;
 
@@ -49,7 +51,7 @@ public class ControladorFinanceiroGerarTotal {
 
         Financeiro f = new Financeiro();
 
-        Time t = new Time();
+        TimeDAO timeDAO = new TimeDAO();
 
         f.setDataBalanco(dbSql);
         f.setPatrocinios((ArrayList<Patrocinio>) patrocinioDAO.readPatrocinio());
@@ -58,6 +60,10 @@ public class ControladorFinanceiroGerarTotal {
         f.setSalarios((ArrayList<Atleta>) atletaDAO.readAtleta());
         f.setTotal(0, f.getPatrocinios(), f.getLucroPartidas(), f.getDespesas(), f.getSalarios());
         f.setTime(idTime);
+        
+        double patrimonio = ControladorLogin.time.getPatrimonio() + f.getTotal();
+        ControladorLogin.time.setPatrimonio(patrimonio);
+        timeDAO.UpdateIntoTime(ControladorLogin.time);
         
         financeiroDAO.insertIntoFinanceiro(f);
 
