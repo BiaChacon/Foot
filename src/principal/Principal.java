@@ -10,28 +10,19 @@ import javafx.scene.image.Image;
 
 public class Principal extends Application {
 
-    private Stage stage1;
-
-    public Stage getStagePrincipal() {
-        return stage1;
-    }
-
-    public Stage getStageEntrar() {
-        return stage1;
-    }
-    
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root;
-        root = FXMLLoader.load(getClass().getResource("/visao/Login.fxml"));
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/visao/Login.fxml"));
         Scene scene = new Scene(root);
         stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
-        stage1 = stage;
+        
         stage.setTitle("Foot");
         
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/visao/img/soccer-ball.png")) {});
+        
     }
 
     public static void main(String[] args) {

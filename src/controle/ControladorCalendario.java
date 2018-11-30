@@ -82,18 +82,23 @@ public class ControladorCalendario implements Initializable {
             p.setX("  X");
 
             if (listaJogo.get(i).isStCouF()) {
+                
                 p.setTimeCasa(ControladorLogin.time.getNome());
                 p.setTimeFora(listaJogo.get(i).getAdversario());
+                
             } else {
+                
                 p.setTimeCasa(listaJogo.get(i).getAdversario());
                 p.setTimeFora(ControladorLogin.time.getNome());
+                
             }
-
+            
             listaPartida.add(p);
+            
         }
 
         return listaPartida;
-        
+
     }
 
     public void tabelaCalendario() {
@@ -125,18 +130,20 @@ public class ControladorCalendario implements Initializable {
         p = tabelaCalendario.getSelectionModel().getSelectedItem();
 
         if (tabelaCalendario.getSelectionModel().isEmpty()) {
+            
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção");
             alert.setHeaderText("Partida não escolhida");
             alert.setContentText("Escolha uma partida para cancelar");
             alert.showAndWait();
+            
         } else {
+            
             if (!p.isStatus()) {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("Confirmação");
                 alert.setHeaderText("Confirmar cancelamento de partida");
                 alert.setContentText("Tem certeza que deseja cancelar partida?");
-
                 Optional<ButtonType> result = alert.showAndWait();
                 if (result.get() == ButtonType.OK) {
                     jogoDAO.deleteFromJogo(tabelaCalendario.getSelectionModel().getSelectedItem());
@@ -150,6 +157,7 @@ public class ControladorCalendario implements Initializable {
                 alert.setContentText("Escolha um jogo que ainda não foi concluido para poder cancelar");
                 alert.showAndWait();
             }
+            
         }
 
     }
@@ -162,13 +170,17 @@ public class ControladorCalendario implements Initializable {
         p = tabelaCalendario.getSelectionModel().getSelectedItem();
 
         if (tabelaCalendario.getSelectionModel().isEmpty()) {
+            
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção");
             alert.setHeaderText("Jogo não escolhido");
             alert.setContentText("Escolha um jogo para concluir");
             alert.showAndWait();
+            
         } else {
+            
             boolean x = p.isStatus();
+            
             if (x == false) {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/visao/CalendarioConcluirPartida.fxml"));
@@ -187,6 +199,7 @@ public class ControladorCalendario implements Initializable {
                 alert.setContentText("Escolha um jogo que ainda não foi concluido");
                 alert.showAndWait();
             }
+            
         }
 
     }
@@ -195,14 +208,23 @@ public class ControladorCalendario implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         colunaDataHorario.setCellValueFactory(new PropertyValueFactory<Partida, String>("dataPartida"));
+        
         colunaLocalJogo.setCellValueFactory(new PropertyValueFactory<Partida, String>("local"));
+        
         colunaCompeticao.setCellValueFactory(new PropertyValueFactory<Partida, String>("compreticao"));
+        
         colunaRendaPartida.setCellValueFactory(new PropertyValueFactory<Partida, Double>("reda"));
+        
         colunaX.setCellValueFactory(new PropertyValueFactory<Partida, String>("x"));
+        
         coluaTimeFora.setCellValueFactory(new PropertyValueFactory<Partida, String>("timeFora"));
+        
         colunaTimeCasa.setCellValueFactory(new PropertyValueFactory<Partida, String>("timeCasa"));
+        
         colunaStatusPartida.setCellValueFactory(new PropertyValueFactory<Partida, ImageView>("st"));
-
+        
         tabelaCalendario();
+        
     }
+    
 }

@@ -5,8 +5,6 @@ import javafx.scene.image.ImageView;
 
 public class Partida {
 
-    Jogo j;
-    Time t;
     private int id;
     private String dataPartida;
     private String local;
@@ -32,9 +30,7 @@ public class Partida {
         this.st = st;
     }
 
-    public Partida() {
-
-    }
+    public Partida() {}
 
     public int getId() {
         return id;

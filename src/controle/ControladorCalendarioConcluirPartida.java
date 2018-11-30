@@ -9,6 +9,7 @@ import persistencia.JogoDAO;
 public class ControladorCalendarioConcluirPartida {
 
     JogoDAO jogoDAO = new JogoDAO();
+    
     private int partidaID;
 
     @FXML
@@ -16,16 +17,17 @@ public class ControladorCalendarioConcluirPartida {
 
     @FXML
     private JFXTextField textLucro;
+    
     @FXML
     private JFXButton btCancelarAL;
 
     public void setPartidaID(int id) {
         partidaID = id;
     }
-    
+
     @FXML
     private void concluirPartida() {
-        
+
         double lucro = Double.parseDouble(textLucro.getText());
 
         Jogo j = new Jogo(lucro, true);
@@ -34,11 +36,14 @@ public class ControladorCalendarioConcluirPartida {
         jogoDAO.updateLucroIntoJogo(j);
 
         ControladorPrincipal.controlador.gerenciarJogos();
+        
     }
 
     @FXML
     private void cancelarAL() {
+        
         ControladorPrincipal.controlador.gerenciarJogos();
+        
     }
 
 }

@@ -29,9 +29,9 @@ public class ControladorAtletaAtualizar implements Initializable {
 
     @FXML
     private void atualizarAtleta() {
-        
+
         int idTime = ControladorLogin.idTime;
-        
+
         double salario = Double.parseDouble(textSalario.getText());
 
         int telefone = Integer.parseInt(textTelefone.getText());
@@ -40,14 +40,16 @@ public class ControladorAtletaAtualizar implements Initializable {
         java.sql.Date dnSql = new java.sql.Date(dn.getTime());
 
         Atleta at = new Atleta(textNome.getText(), textCPF.getText(), dnSql, telefone, textEmail.getText(), textEndereco.getText(), salario, idTime);
-        
+
         atletaDAO.UpdateIntoAtleta(at);
-        
+
         ControladorPrincipal.controlador.gerenciarAtletas();
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         a = ControladorAtleta.c.a;
 
         textNome.setText(a.getNome());
@@ -65,5 +67,7 @@ public class ControladorAtletaAtualizar implements Initializable {
 
         String salario = String.valueOf(a.getSalario());
         textSalario.setText(salario);
+
     }
+
 }

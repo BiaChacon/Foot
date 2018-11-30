@@ -4,7 +4,9 @@ public class Jogo {
 
     private int id;
     private String dataHoraPartida;
-    private String localJogo, adversario, competicao;
+    private String localJogo;
+    private String adversario;
+    private String competicao;
     private double lucroPartida;
     private boolean concluida;
     private boolean stCouF;
@@ -108,5 +110,5 @@ public class Jogo {
     public void setTime(int time) {
         this.time = time;
     }
-    
+
 }

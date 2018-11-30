@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import modelo.Despesa;
-import modelo.Financeiro;
 import persistencia.DespesaDAO;
 
 public class ControladorFinanceiroAddDespesa {
@@ -19,6 +18,7 @@ public class ControladorFinanceiroAddDespesa {
     
     @FXML
     private JFXButton btAddDespesa;
+    
     @FXML
     private JFXButton btCancelar;
 
@@ -38,6 +38,9 @@ public class ControladorFinanceiroAddDespesa {
 
     @FXML
     private void cancelarAD() {
+        
         ControladorPrincipal.controlador.financeiro();
+        
     }
+    
 }

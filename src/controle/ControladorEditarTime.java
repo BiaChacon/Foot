@@ -37,7 +37,9 @@ public class ControladorEditarTime implements Initializable {
 
     @FXML
     private void cancelarEdit() {
+        
         ControladorPrincipal.controlador.configuracao();
+        
     }
 
     @FXML
@@ -49,21 +51,27 @@ public class ControladorEditarTime implements Initializable {
         Time team = new Time(ControladorLogin.idTime, textUser.getText(), textSenha.getText(), textNomeT.getText(), dfSql, ControladorLogin.time.getPatrimonio());
 
         Boolean v = timeDAO.verificarTime(team.getUsuario());
-        System.out.println(v);
+  
         if (v) {
+            
             if (textUser.getText().equals(ControladorLogin.time.getUsuario())) {
+                
                 timeDAO.UpdateIntoTime(team);
                 ControladorLogin.time = team;
                 ControladorPrincipal.controlador.configuracao();
 
             } else {
+                
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Atenção");
                 alert.setHeaderText("Nome de usuário de Time já existe");
                 alert.setContentText("Escolha um usuário que não existe");
                 alert.showAndWait();
+                
             }
+            
         } else {
+            
             timeDAO.UpdateIntoTime(team);
             ControladorLogin.time = team;
             ControladorPrincipal.controlador.configuracao();

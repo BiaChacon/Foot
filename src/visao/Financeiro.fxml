@@ -10,101 +10,103 @@
 <?import javafx.scene.text.Font?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1029.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorFinanceiro">
-   <center>
-      <TabPane fx:id="tabPaneFinanceiro" prefHeight="777.0" prefWidth="1029.0" stylesheets="@newfile.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-        <tabs>
-          <Tab text="GERAL">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TableView fx:id="tebelaTotal" layoutX="12.0" layoutY="14.0" prefHeight="573.0" prefWidth="1005.0">
-                          <columns>
-                            <TableColumn fx:id="colunaData" prefWidth="138.0" text="ANO/MÊS" />
-                            <TableColumn fx:id="colunaPatricios" prefWidth="151.0" text="PATROCÍNIOS" />
-                              <TableColumn fx:id="colunaDespesas" minWidth="0.0" prefWidth="151.0" text="DESPESAS" />
-                              <TableColumn fx:id="colunaSalarios" prefWidth="161.0" text="SALÁRIOS" />
-                              <TableColumn fx:id="colunaLucroPartidas" prefWidth="203.0" text="LUCRO PARTIDAS" />
-                              <TableColumn fx:id="colunaTotal" prefWidth="200.0" text="TOTAL" />
-                          </columns>
-                        </TableView>
-                        <JFXButton fx:id="btGerarTotal" layoutX="603.0" layoutY="599.0" onAction="#gerarTotal" style="-fx-background-color: GREEN;" text="GERAR BALANÇO FINANCEIRO DO TIME" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font></JFXButton>
-                        <JFXButton fx:id="btRemoverTotal" layoutX="923.0" layoutY="599.0" onAction="#removerTotal" style="-fx-background-color: RED;" text="REMOVER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </JFXButton>
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-          <Tab fx:id="tabPatrocinio" text="PATROCÍNIO">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TableView fx:id="tabelaPatrocinio" layoutX="201.0" layoutY="59.0" prefHeight="400.0" prefWidth="500.0" stylesheets="@newfile.css">
-                          <columns>
-                            <TableColumn fx:id="colunaPatrocino" prefWidth="307.0" text="PRATOCINADOR" />
-                            <TableColumn fx:id="colunaValorP" prefWidth="192.0" text="VALOR" />
-                          </columns>
-                        </TableView>
-                        <JFXButton fx:id="btAdicionarP" layoutX="474.0" layoutY="491.0" onAction="#adicionarPatrocinio" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: green;" text="ADICIONAR" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton fx:id="btRemoverP" layoutX="594.0" layoutY="491.0" onAction="#removerPatrocinio" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: red;" text="REMOVER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </JFXButton>
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
-            <Tab fx:id="tabDespesa" text="DESPESAS">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <JFXButton fx:id="btAdicionarD" layoutX="474.0" layoutY="493.0" onAction="#adicionarDespesa" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: green;" text="ADICIONAR" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </JFXButton>
-                        <JFXButton fx:id="btremoverD" layoutX="597.0" layoutY="493.0" onAction="#removerDespesa" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: red;" text="REMOVER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="15.0" />
-                           </font>
-                        </JFXButton>
-                        <TableView fx:id="tabelaDespesa" layoutX="204.0" layoutY="63.0" prefHeight="400.0" prefWidth="500.0" stylesheets="@newfile.css">
-                          <columns>
-                            <TableColumn fx:id="colunaDespesa" prefWidth="293.0" text="DESPESA" />
-                            <TableColumn fx:id="colunaValorD" prefWidth="206.0" text="VALOR" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-            <Tab text="SALÁRIOS">
-              <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <TableView fx:id="tabelaSalario" layoutX="201.0" layoutY="67.0" prefHeight="400.0" prefWidth="500.0">
-                          <columns>
-                            <TableColumn fx:id="colunaAtleta" prefWidth="352.0" text="ATLETA" />
-                            <TableColumn fx:id="colunaSalario" prefWidth="147.0" text="SALÁRIO" />
-                          </columns>
-                        </TableView>
-                     </children>
-                  </AnchorPane>
-              </content>
-            </Tab>
-        </tabs>
-      </TabPane>
-   </center>
-   <top>
-      <AnchorPane prefHeight="3.0" prefWidth="1029.0" BorderPane.alignment="CENTER" />
-   </top>
+    <center>
+        <TabPane fx:id="tabPaneFinanceiro" prefHeight="777.0" prefWidth="1029.0" stylesheets="@newfile.css" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="GERAL">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="tebelaTotal" layoutX="12.0" layoutY="14.0" prefHeight="573.0" prefWidth="1005.0">
+                                    <columns>
+                                        <TableColumn fx:id="colunaData" prefWidth="138.0" text="ANO/MÊS" />
+                                        <TableColumn fx:id="colunaPatricios" prefWidth="151.0" text="PATROCÍNIOS" />
+                                        <TableColumn fx:id="colunaDespesas" minWidth="0.0" prefWidth="151.0" text="DESPESAS" />
+                                        <TableColumn fx:id="colunaSalarios" prefWidth="161.0" text="SALÁRIOS" />
+                                        <TableColumn fx:id="colunaLucroPartidas" prefWidth="203.0" text="LUCRO PARTIDAS" />
+                                        <TableColumn fx:id="colunaTotal" prefWidth="200.0" text="TOTAL" />
+                                    </columns>
+                                </TableView>
+                                <JFXButton fx:id="btGerarTotal" layoutX="603.0" layoutY="599.0" onAction="#gerarTotal" style="-fx-background-color: GREEN;" text="GERAR BALANÇO FINANCEIRO DO TIME" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton fx:id="btRemoverTotal" layoutX="923.0" layoutY="599.0" onAction="#removerTotal" style="-fx-background-color: RED;" text="REMOVER" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </JFXButton>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabPatrocinio" text="PATROCÍNIO">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="tabelaPatrocinio" layoutX="201.0" layoutY="59.0" prefHeight="400.0" prefWidth="500.0" stylesheets="@newfile.css">
+                                    <columns>
+                                        <TableColumn fx:id="colunaPatrocino" prefWidth="307.0" text="PRATOCINADOR" />
+                                        <TableColumn fx:id="colunaValorP" prefWidth="192.0" text="VALOR" />
+                                    </columns>
+                                </TableView>
+                                <JFXButton fx:id="btAdicionarP" layoutX="474.0" layoutY="491.0" onAction="#adicionarPatrocinio" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: green;" text="ADICIONAR" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton fx:id="btRemoverP" layoutX="594.0" layoutY="491.0" onAction="#removerPatrocinio" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: red;" text="REMOVER" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </JFXButton>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab fx:id="tabDespesa" text="DESPESAS">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <JFXButton fx:id="btAdicionarD" layoutX="474.0" layoutY="493.0" onAction="#adicionarDespesa" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: green;" text="ADICIONAR" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </JFXButton>
+                                <JFXButton fx:id="btremoverD" layoutX="597.0" layoutY="493.0" onAction="#removerDespesa" prefHeight="31.0" prefWidth="107.0" style="-fx-background-color: red;" text="REMOVER" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="15.0" />
+                                    </font>
+                                </JFXButton>
+                                <TableView fx:id="tabelaDespesa" layoutX="204.0" layoutY="63.0" prefHeight="400.0" prefWidth="500.0" stylesheets="@newfile.css">
+                                    <columns>
+                                        <TableColumn fx:id="colunaDespesa" prefWidth="293.0" text="DESPESA" />
+                                        <TableColumn fx:id="colunaValorD" prefWidth="206.0" text="VALOR" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+                <Tab text="SALÁRIOS">
+                    <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                            <children>
+                                <TableView fx:id="tabelaSalario" layoutX="201.0" layoutY="67.0" prefHeight="400.0" prefWidth="500.0">
+                                    <columns>
+                                        <TableColumn fx:id="colunaAtleta" prefWidth="352.0" text="ATLETA" />
+                                        <TableColumn fx:id="colunaSalario" prefWidth="147.0" text="SALÁRIO" />
+                                    </columns>
+                                </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </Tab>
+            </tabs>
+        </TabPane>
+    </center>
+    <top>
+        <AnchorPane prefHeight="3.0" prefWidth="1029.0" BorderPane.alignment="CENTER" />
+    </top>
 </BorderPane>

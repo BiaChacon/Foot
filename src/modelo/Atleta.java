@@ -4,13 +4,15 @@ import java.sql.Date;
 
 public class Atleta {
 
-    private String nome, cpf, email, endereco;
+    private String nome;
+    private String cpf;
+    private String email;
+    private String endereco;
     private int telefone;
     private double salario;
     private Date dataNasc;
     private int time;
-    
-    
+
     public Atleta(String nome, String cpf, Date dataNasc, int telefone, String email, String endereco, double salario, int time) {
         this.nome = nome;
         this.cpf = cpf;
@@ -85,5 +87,5 @@ public class Atleta {
     public void setTime(int time) {
         this.time = time;
     }
-    
+
 }

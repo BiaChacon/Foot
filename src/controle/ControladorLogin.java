@@ -19,45 +19,58 @@ import modelo.Time;
 import persistencia.TimeDAO;
 
 public class ControladorLogin implements Initializable {
-    
+
     public static int idTime;
-    
+
     static ControladorLogin controladorLogin;
-    
-    static Time time; 
-    
+
+    static Time time;
+
     TimeDAO timeDAO = new TimeDAO();
 
     @FXML
     private BorderPane borderLogin;
+
     @FXML
     private AnchorPane anchorLogin;
+
     @FXML
     private JFXButton login;
+
     @FXML
     private JFXButton btCadastrar;
+
     @FXML
     private JFXPasswordField textSenha;
+
     @FXML
     private JFXTextField textUser;
+
     @FXML
     private Label labelMensagem;
 
     @FXML
     void login() {
+
         Time t = new Time(textUser.getText(), textSenha.getText());
+
         if (timeDAO.loginTime(t) != null) {
+
             try {
                 idTime = timeDAO.loginTime(t).getId();
-                time = timeDAO.loginTime(t); 
+                time = timeDAO.loginTime(t);
                 Parent login = FXMLLoader.load(getClass().getResource("/visao/Principal.fxml"));
                 borderLogin.setCenter(login);
             } catch (IOException ex) {
                 Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else{
-          labelMensagem.setText("Usuário ou senha incorreto");
+
+        } else {
+
+            labelMensagem.setText("Usuário ou senha incorreto");
+
         }
+
     }
 
     @FXML
@@ -69,6 +82,7 @@ public class ControladorLogin implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     void inicio() {
@@ -79,13 +93,16 @@ public class ControladorLogin implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ControladorLogin.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         controladorLogin = this;
         textUser.setStyle("-fx-text-inner-color: white;");
         textSenha.setStyle("-fx-text-inner-color: white;");
+
     }
 
 }

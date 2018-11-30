@@ -58,7 +58,7 @@ public class PatrocinioDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                if(rs.getInt("ID_TEAM") == ControladorLogin.idTime){
+                if (rs.getInt("ID_TEAM") == ControladorLogin.idTime) {
                     Patrocinio p = new Patrocinio(
                             rs.getString("nome"),
                             rs.getDouble("valor"),
@@ -74,4 +74,5 @@ public class PatrocinioDAO {
         }
         return listaPatrocinio;
     }
+    
 }

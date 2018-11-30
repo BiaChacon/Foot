@@ -22,10 +22,9 @@ public class TimeDAO {
     private final String DELETE = "DELETE FROM TEAM WHERE id = ?;";
 
     private final String LISTTIME = "SELECT * FROM TEAM";
-    
+
     private final String VERIFICAR = "SELECT * FROM TEAM WHERE usuario = ?;";
-    
-    
+
     public Boolean verificarTime(String user) {
         try {
             c.dbConnection();
@@ -48,22 +47,21 @@ public class TimeDAO {
         }
         return false;
     }
-    
-    
+
     public Time loginTime(Time t) {
         try {
-            
+
             c.dbConnection();
 
             System.out.println(t.toString());
-            
+
             PreparedStatement pst = c.getConnection().prepareStatement(LOGIN);
 
             pst.setString(1, t.getUsuario());
             pst.setString(2, t.getSenha());
 
             ResultSet rst = pst.executeQuery();
-            
+
             System.out.println(rst.toString());
             if (rst.next()) {
                 Time tr = new Time(
@@ -83,9 +81,9 @@ public class TimeDAO {
         } catch (SQLException ex) {
             Logger.getLogger(ConnectionDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return null;
-        
+
     }
 
     public void insertIntoTime(Time t) {
@@ -164,4 +162,5 @@ public class TimeDAO {
         }
         return listaTime;
     }
+
 }

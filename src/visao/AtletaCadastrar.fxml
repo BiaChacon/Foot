@@ -8,49 +8,58 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorAtletaCadastrar">
-   <children>
-      <JFXTextField fx:id="textNome" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="84.0" prefHeight="31.0" prefWidth="223.0" />
-      <JFXDatePicker fx:id="dateNascimento" defaultColor="BLUEVIOLET" layoutX="369.0" layoutY="153.0" prefHeight="31.0" prefWidth="223.0" />
-      <JFXTextField fx:id="textCPF" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="222.0" prefHeight="31.0" prefWidth="223.0" />
-      <JFXTextField fx:id="textEndereco" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="285.0" prefHeight="31.0" prefWidth="223.0" />
-      <JFXTextField fx:id="textTelefone" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="353.0" prefHeight="31.0" prefWidth="223.0" />
-      <JFXTextField fx:id="textEmail" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="418.0" prefHeight="31.0" prefWidth="223.0" />
-      <JFXTextField fx:id="textSalario" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="477.0" prefHeight="31.0" prefWidth="223.0" />
-      <JFXButton fx:id="btCadastrar" layoutX="366.0" layoutY="555.0" onAction="#cadastrarAtleta" style="-fx-background-color: green;" text="CADASTRAR" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font></JFXButton>
-      <Label layoutX="369.0" layoutY="67.0" text="NOME" textFill="BLUEVIOLET">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="369.0" layoutY="136.0" text="DATA NASCIMENTO" textFill="BLUEVIOLET">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="369.0" layoutY="205.0" text="CPF" textFill="BLUEVIOLET">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="369.0" layoutY="268.0" text="ENDEREÇO" textFill="BLUEVIOLET">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="369.0" layoutY="336.0" text="TELEFONE" textFill="BLUEVIOLET">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="369.0" layoutY="401.0" text="EMAIL" textFill="BLUEVIOLET">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Label layoutX="369.0" layoutY="460.0" text="SALÁRIO" textFill="BLUEVIOLET">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <JFXButton fx:id="btCancelar" layoutX="492.0" layoutY="555.0" onAction="#cancelarCA" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: red;" text="CANCELAR" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font></JFXButton>
-   </children>
+    <children>
+        <JFXTextField fx:id="textNome" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="84.0" prefHeight="31.0" prefWidth="223.0" />
+        <JFXDatePicker fx:id="dateNascimento" defaultColor="BLUEVIOLET" layoutX="369.0" layoutY="153.0" prefHeight="31.0" prefWidth="223.0" />
+        <JFXTextField fx:id="textCPF" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="222.0" prefHeight="31.0" prefWidth="223.0" />
+        <JFXTextField fx:id="textEndereco" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="285.0" prefHeight="31.0" prefWidth="223.0" />
+        <JFXTextField fx:id="textTelefone" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="353.0" prefHeight="31.0" prefWidth="223.0" />
+        <JFXTextField fx:id="textEmail" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="418.0" prefHeight="31.0" prefWidth="223.0" />
+        <JFXTextField fx:id="textSalario" focusColor="BLUEVIOLET" layoutX="369.0" layoutY="477.0" prefHeight="31.0" prefWidth="223.0" />
+        <JFXButton fx:id="btCadastrar" layoutX="366.0" layoutY="555.0" onAction="#cadastrarAtleta" style="-fx-background-color: green;" text="CADASTRAR" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </JFXButton>
+        <Label layoutX="369.0" layoutY="67.0" text="NOME" textFill="BLUEVIOLET">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="369.0" layoutY="136.0" text="DATA NASCIMENTO" textFill="BLUEVIOLET">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="369.0" layoutY="205.0" text="CPF" textFill="BLUEVIOLET">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="369.0" layoutY="268.0" text="ENDEREÇO" textFill="BLUEVIOLET">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="369.0" layoutY="336.0" text="TELEFONE" textFill="BLUEVIOLET">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="369.0" layoutY="401.0" text="EMAIL" textFill="BLUEVIOLET">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="369.0" layoutY="460.0" text="SALÁRIO" textFill="BLUEVIOLET">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <JFXButton fx:id="btCancelar" layoutX="492.0" layoutY="555.0" onAction="#cancelarCA" prefHeight="31.0" prefWidth="109.0" style="-fx-background-color: red;" text="CANCELAR" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </JFXButton>
+    </children>
 </AnchorPane>

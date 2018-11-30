@@ -10,15 +10,14 @@ public class Patrocinio {
     public Patrocinio(String nome, Double valor, int financeiroTime) {
         this.nome = nome;
         this.valor = valor;
-         this.financeiroTime = financeiroTime;
+        this.financeiroTime = financeiroTime;
     }
-    
 
     public Patrocinio(String nome, Double valor, int id, int financeiroTime) {
         this.nome = nome;
         this.valor = valor;
         this.id = id;
-         this.financeiroTime = financeiroTime;
+        this.financeiroTime = financeiroTime;
     }
 
     public String getNome() {
@@ -52,5 +51,5 @@ public class Patrocinio {
     public void setFinanceiroTime(int financeiroTime) {
         this.financeiroTime = financeiroTime;
     }
-    
+
 }

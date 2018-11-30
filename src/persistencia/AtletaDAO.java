@@ -21,10 +21,10 @@ public class AtletaDAO {
     private final String DELETE = "DELETE FROM ATLETA WHERE cpf = ?;";
 
     private final String LISTATLETA = "SELECT * FROM ATLETA";
-    
+
     private final String VERIFICAR = "SELECT * FROM ATLETA WHERE cpf = ?;";
-    
-        public Boolean verificar(String cpf) {
+
+    public Boolean verificar(String cpf) {
         try {
             c.dbConnection();
 
@@ -46,7 +46,7 @@ public class AtletaDAO {
         }
         return false;
     }
-    
+
     public void insertIntoAtleta(Atleta a) {
         c.dbConnection();
         try {
@@ -110,8 +110,8 @@ public class AtletaDAO {
             ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                
-                if (rs.getInt("ID_TEAM") == ControladorLogin.idTime){
+
+                if (rs.getInt("ID_TEAM") == ControladorLogin.idTime) {
                     Atleta a = new Atleta(
                             rs.getString("nome"),
                             rs.getString("cpf"),
@@ -132,4 +132,5 @@ public class AtletaDAO {
         }
         return listaAtleta;
     }
+    
 }

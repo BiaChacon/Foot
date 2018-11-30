@@ -36,9 +36,9 @@ public class ControladorCalendarioAdicionarPartida {
 
     @FXML
     private void cadastrarPartida() {
-        
+
         int idTime = ControladorLogin.idTime;
-        
+
         Date d = Date.from(datePartida.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         SimpleDateFormat formatador = new SimpleDateFormat("dd-MM-yyyy");
         String date = formatador.format(d);
@@ -58,11 +58,14 @@ public class ControladorCalendarioAdicionarPartida {
         jogoDAO.insertIntoJogo(j);
 
         ControladorPrincipal.controlador.gerenciarJogos();
+        
     }
 
     @FXML
     private void cancelarCP() {
+        
         ControladorPrincipal.controlador.gerenciarJogos();
+        
     }
 
 }

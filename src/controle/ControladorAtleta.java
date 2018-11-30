@@ -64,10 +64,12 @@ public class ControladorAtleta implements Initializable {
         listaAtleta.clear();
         listaAtleta.addAll(atletaDAO.readAtleta());
         tabelaAtleta.setItems(listaAtleta);
+        
     }
 
     @FXML
     private void cadastrarAtleta() {
+        
         try {
             Parent cadastrarAtleta = FXMLLoader.load(getClass().getResource("/visao/AtletaCadastrar.fxml"));
             ControladorPrincipal.controlador.borderPrincipal.setCenter(cadastrarAtleta);
@@ -75,41 +77,52 @@ public class ControladorAtleta implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ControladorAtleta.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     @FXML
     private void removerAtleta() {
+        
         if (tabelaAtleta.getSelectionModel().isEmpty()) {
+            
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção");
             alert.setHeaderText("Atleta não escolhido");
             alert.setContentText("Escolha um atleta para remover");
             alert.showAndWait();
+            
         } else {
+            
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmação");
             alert.setHeaderText("Confirmar exclusão de atleta");
             alert.setContentText("Tem certeza que deseja excluir o atleta?");
-
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.OK) {
                 atletaDAO.deleteFromAtleta(tabelaAtleta.getSelectionModel().getSelectedItem());
                 int indice = tabelaAtleta.getSelectionModel().getSelectedIndex();
                 tabelaAtleta.getItems().remove(indice);
             }
+            
         }
+        
     }
 
     @FXML
     private void atualizarAtleta() {
+        
         a = tabelaAtleta.getSelectionModel().getSelectedItem();
+        
         if (tabelaAtleta.getSelectionModel().isEmpty()) {
+            
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção");
             alert.setHeaderText("Atleta não escolhido");
             alert.setContentText("Escolha um atleta para atualizar");
             alert.showAndWait();
+            
         } else {
+            
             try {
                 Parent atualizarAtleta = FXMLLoader.load(getClass().getResource("/visao/AtletaAtualizar.fxml"));
 
@@ -117,11 +130,11 @@ public class ControladorAtleta implements Initializable {
                 ControladorPrincipal.controlador.labelPrincipal.setText("ATUALIZAR ATLETA");
 
             } catch (IOException ex) {
-                Logger.getLogger(ControladorAtleta.class
-                        .getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ControladorAtleta.class.getName()).log(Level.SEVERE, null, ex);
             }
-
+            
         }
+        
     }
 
     @Override
@@ -142,7 +155,9 @@ public class ControladorAtleta implements Initializable {
         colunaSalarioAtleta.setCellValueFactory(new PropertyValueFactory<Atleta, Double>("salario"));
 
         tabelaAtleta();
+        
         c = this;
+        
     }
 
 }

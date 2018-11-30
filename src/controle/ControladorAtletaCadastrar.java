@@ -59,21 +59,27 @@ public class ControladorAtletaCadastrar implements Initializable {
         Boolean vA = atletaDAO.verificar(textCPF.getText());
 
         if(vA){
+            
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Atenção");
             alert.setHeaderText("Atleta já cadastrado");
             alert.setContentText("Digite um atleta não cadastrado");
             alert.showAndWait();
+            
         } else {
+            
             atletaDAO.insertIntoAtleta(a);
             ControladorPrincipal.controlador.gerenciarAtletas();
+            
         }
 
     }
 
     @FXML
     private void cancelarCA() {
+        
         ControladorPrincipal.controlador.gerenciarAtletas();
+        
     }
 
     /*public static void mascaraCPF(TextField textField) {
@@ -134,4 +140,5 @@ public class ControladorAtletaCadastrar implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
     }
+    
 }

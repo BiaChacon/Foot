@@ -45,9 +45,7 @@ public class Time {
         this.senha = senha;
     }
 
-    public Time() {
-        
-    }
+    public Time() {}
 
     public int getId() {
         return id;
@@ -103,11 +101,6 @@ public class Time {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    @Override
-    public String toString() {
-        return "Time{" + "id=" + id + ", usuario=" + usuario + ", senha=" + senha + ", nome=" + nome + ", dataFundacao=" + dataFundacao + ", patrimonio=" + patrimonio + ", fotoTime=" + fotoTime + '}';
     }
     
 }
