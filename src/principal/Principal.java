@@ -19,7 +19,7 @@ public class Principal extends Application {
         stage.setScene(scene);
         stage.show();
         
-        stage.setTitle("Foot");
+        stage.setTitle("Football Manager");
         
         stage.getIcons().add(new Image(getClass().getResourceAsStream("/visao/img/soccer-ball.png")) {});
         
