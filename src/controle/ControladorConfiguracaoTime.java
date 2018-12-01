@@ -26,12 +26,7 @@ public class ControladorConfiguracaoTime {
         }
 
     }
-
-    @FXML
-    private void editarImagem() {
-
-    }
-
+    
     @FXML
     private void apagarTime() {
 
