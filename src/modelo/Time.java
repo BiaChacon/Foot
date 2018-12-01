@@ -1,27 +1,15 @@
 package modelo;
 
 import java.sql.Date;
-import javafx.scene.image.ImageView;
 
 public class Time {
-    
+
     private int id;
     private String usuario;
     private String senha;
     private String nome;
     private Date dataFundacao;
     private double patrimonio;
-    private ImageView fotoTime;
-
-    public Time(int id, String usuario, String senha, String nome, Date dataFundacao, double patrimonio, ImageView fotoTime) {
-        this.id = id;
-        this.usuario = usuario;
-        this.senha = senha;
-        this.nome = nome;
-        this.dataFundacao = dataFundacao;
-        this.patrimonio = patrimonio;
-        this.fotoTime = fotoTime;
-    }
 
     public Time(int id, String usuario, String senha, String nome, Date dataFundacao, double patrimonio) {
         this.id = id;
@@ -45,7 +33,8 @@ public class Time {
         this.senha = senha;
     }
 
-    public Time() {}
+    public Time() {
+    }
 
     public int getId() {
         return id;
@@ -61,14 +50,6 @@ public class Time {
 
     public void setPatrimonio(double patrimonio) {
         this.patrimonio = patrimonio;
-    }
-    
-    public ImageView getFotoTime() {
-        return fotoTime;
-    }
-
-    public void setFotoTime(ImageView fotoTime) {
-        this.fotoTime = fotoTime;
     }
 
     public String getNome() {
@@ -102,5 +83,5 @@ public class Time {
     public void setSenha(String senha) {
         this.senha = senha;
     }
-    
+
 }
