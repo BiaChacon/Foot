@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPrincipal" prefHeight="800.0" prefWidth="1400.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorPrincipal">
+<BorderPane fx:id="borderPrincipal" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controle.ControladorPrincipal">
     <left>
-        <VBox prefHeight="750.0" prefWidth="200.0" spacing="20.0" BorderPane.alignment="CENTER">
+        <VBox prefHeight="750.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
             <children>
                 <JFXButton fx:id="btInicio" alignment="BASELINE_LEFT" onAction="#inicio" prefHeight="60.0" prefWidth="242.0" text="INÍCIO" textFill="BLUEVIOLET">
                     <font>
@@ -112,37 +112,37 @@
     <center>
         <AnchorPane fx:id="anchorInicial" prefHeight="640.0" prefWidth="881.0" BorderPane.alignment="CENTER">
             <children>
-                <Label fx:id="labelNomeTime" alignment="CENTER" contentDisplay="CENTER" layoutX="194.0" layoutY="82.0" prefHeight="53.0" prefWidth="500.0" text="NOME TIME" textFill="BLUEVIOLET">
+                <Pane layoutX="927.0" prefHeight="703.0" prefWidth="64.0" />
+                <ImageView fx:id="imagem" fitHeight="389.0" fitWidth="405.0" layoutX="303.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@img/Archbell%20Falcons.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="labelNomeTime" alignment="CENTER" contentDisplay="CENTER" layoutX="247.0" layoutY="291.0" prefHeight="53.0" prefWidth="500.0" text="NOME TIME" textFill="BLUEVIOLET">
                     <font>
                         <Font name="System Bold" size="36.0" />
                     </font>
                 </Label>
-                <Label layoutX="348.0" layoutY="218.0" text="DATA FUNDAÇÃO: " textFill="BLUEVIOLET">
+                <Label fx:id="labelDataFundacao" layoutX="540.0" layoutY="357.0" prefHeight="21.0" prefWidth="152.0" text="DATA" textFill="BLUEVIOLET">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <Label fx:id="labelDataFundacao" layoutX="487.0" layoutY="218.0" prefHeight="21.0" prefWidth="152.0" text="DATA" textFill="BLUEVIOLET">
+                <Label layoutX="393.0" layoutY="357.0" text="DATA FUNDAÇÃO: " textFill="BLUEVIOLET">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <Label layoutX="348.0" layoutY="186.0" prefHeight="21.0" prefWidth="109.0" text="PATRIMÔNIO:" textFill="BLUEVIOLET">
+                <Label layoutX="393.0" layoutY="387.0" prefHeight="21.0" prefWidth="109.0" text="PATRIMÔNIO:" textFill="BLUEVIOLET">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <Label fx:id="labelPatrimonio" layoutX="457.0" layoutY="186.0" prefHeight="21.0" prefWidth="126.0" text="VALOR" textFill="BLUEVIOLET">
+                <Label fx:id="labelPatrimonio" layoutX="510.0" layoutY="387.0" prefHeight="21.0" prefWidth="126.0" text="VALOR" textFill="BLUEVIOLET">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
                 </Label>
-                <Pane layoutX="927.0" prefHeight="703.0" prefWidth="64.0" />
-                <ImageView fx:id="imagem" fitHeight="252.0" fitWidth="309.0" layoutX="707.0" layoutY="81.0" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@img/add.png" />
-                    </image>
-                </ImageView>
             </children>
         </AnchorPane>
     </center>
