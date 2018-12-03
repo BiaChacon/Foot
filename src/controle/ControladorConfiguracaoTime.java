@@ -26,7 +26,7 @@ public class ControladorConfiguracaoTime {
         }
 
     }
-    
+
     @FXML
     private void apagarTime() {
 
@@ -35,12 +35,12 @@ public class ControladorConfiguracaoTime {
         alert.setHeaderText("Confirmar exclusão de Time");
         alert.setContentText("Tem certeza que deseja excluir o Time?");
         Optional<ButtonType> result = alert.showAndWait();
+        
         if (result.get() == ButtonType.OK) {
             timeDAO.deleteFromTime(ControladorLogin.idTime);
+            ControladorLogin.controladorLogin.inicio();
         }
 
-        ControladorLogin.controladorLogin.inicio();
-        
     }
 
 }
